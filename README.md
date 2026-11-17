@@ -7,6 +7,7 @@
 - 에이전트 규칙: [`AGENTS.md`](AGENTS.md)
 - 단계별 지시문: [`prompts/`](prompts/README.md)
 - 데이터 형식: [`docs/schema.md`](docs/schema.md)
+- 처음 설정: [`docs/setup-guide.md`](docs/setup-guide.md)
 
 ## 작업 흐름
 
