@@ -1,11 +1,140 @@
 {
-  "updated": "2026-11-17",
+  "updated": "2026-11-18",
   "items": [
-    { "id": "S001", "title": "첫 가설 후보: 물리치료사 AI 임상 비서 교육", "used_in": "가설 카드", "grade": "C", "source": "내부 결정 (지침서)", "url": null, "checked": null },
-    { "id": "S002", "title": "타이밍 후보 3개 (입사·이직 직후, 연초·학기, 기록 업무 직후)", "used_in": "가설 카드", "grade": "C", "source": "가설", "url": null, "checked": null },
-    { "id": "S003", "title": "N: 국내 물리치료사 인원", "used_in": "수익 계산", "grade": null, "source": "미확인 · 에이전트 조사 예정", "url": null, "checked": null },
-    { "id": "S004", "title": "LTV가 CAC의 3배 이상이어야 한다", "used_in": "수익 계산 점검선", "grade": "B", "source": "업계 경험칙 · 출처 링크 미기입", "url": null, "checked": null },
-    { "id": "S005", "title": "손실이 이득보다 약 2배 크게 느껴진다", "used_in": "심리 이론 검증", "grade": "C", "source": "연구마다 편차 큼 · 실험값으로 교체", "url": null, "checked": null },
-    { "id": "S006", "title": "노출 대비 신청 전환율 c", "used_in": "수익 계산", "grade": "C", "source": "랜딩 테스트 전", "url": null, "checked": null }
+    {
+      "id": "S001",
+      "title": "첫 가설 후보: 물리치료사 AI 임상 비서 교육",
+      "used_in": "가설 카드",
+      "grade": "C",
+      "source": "내부 결정 (지침서)",
+      "url": null,
+      "checked": null
+    },
+    {
+      "id": "S002",
+      "title": "타이밍 후보 3개 (입사·이직 직후, 연초·학기, 기록 업무 직후)",
+      "used_in": "가설 카드",
+      "grade": "C",
+      "source": "가설",
+      "url": null,
+      "checked": null
+    },
+    {
+      "id": "S003",
+      "title": "N: 국내 물리치료사 인원",
+      "used_in": "수익 계산",
+      "grade": null,
+      "source": "미확인 · 에이전트 조사 예정",
+      "url": null,
+      "checked": null
+    },
+    {
+      "id": "S004",
+      "title": "LTV가 CAC의 3배 이상이어야 한다",
+      "used_in": "수익 계산 점검선",
+      "grade": "B",
+      "source": "업계 경험칙 · 출처 링크 미기입",
+      "url": null,
+      "checked": null
+    },
+    {
+      "id": "S005",
+      "title": "손실이 이득보다 약 2배 크게 느껴진다",
+      "used_in": "심리 이론 검증",
+      "grade": "C",
+      "source": "연구마다 편차 큼 · 실험값으로 교체",
+      "url": null,
+      "checked": null
+    },
+    {
+      "id": "S006",
+      "title": "노출 대비 신청 전환율 c",
+      "used_in": "수익 계산",
+      "grade": "C",
+      "source": "랜딩 테스트 전",
+      "url": null,
+      "checked": null
+    },
+    {
+      "id": "S007",
+      "title": "Abridge 2025-06 $300M 조달, 기업 가치 $5.3B",
+      "used_in": "조사 아카이브 P001",
+      "grade": "B",
+      "source": "MedCity News 2025-07-29",
+      "url": "https://medcitynews.com/2025/07/healthcare-documentation-startup-unicorn/",
+      "checked": "2026-11-18"
+    },
+    {
+      "id": "S008",
+      "title": "Ambience Healthcare 2025-07 시리즈 C $243M, 기업 가치 $1.25B",
+      "used_in": "조사 아카이브 P001",
+      "grade": "B",
+      "source": "MedCity News 2025-07-29",
+      "url": "https://medcitynews.com/2025/07/healthcare-documentation-startup-unicorn/",
+      "checked": "2026-11-18"
+    },
+    {
+      "id": "S009",
+      "title": "Nabla 2025-06 시리즈 C $70M, 누적 투자 $120M, 임상의 85,000명 (기업 가치 비공개)",
+      "used_in": "조사 아카이브 P001",
+      "grade": "A",
+      "source": "Nabla 보도자료 2025-06-17",
+      "url": "https://www.prnewswire.com/news-releases/nabla-raises-70m-series-c-to-deliver-agentic-ai-to-the-heart-of-clinical-workflows-bringing-total-funding-to-120m-302483646.html",
+      "checked": "2026-11-18"
+    },
+    {
+      "id": "S010",
+      "title": "Olive 2021-07 $400M 조달, 기업 가치 $4B, 누적 $902M",
+      "used_in": "조사 아카이브 P001",
+      "grade": "A",
+      "source": "Olive 보도자료 2021-07-01",
+      "url": "https://prnewswire.com/news-releases/olive-hits-a-4-billion-valuation-with-400-million-of-capital-led-by-vista-equity-partners-301323850.html",
+      "checked": "2026-11-18"
+    },
+    {
+      "id": "S011",
+      "title": "Olive 2023-10-31 사업부 매각(Waystar·Humata Health)과 폐업 발표, 2023년 앞서 다른 사업부도 매각",
+      "used_in": "조사 아카이브 P001",
+      "grade": "B",
+      "source": "HIT Consultant 2023-10-31",
+      "url": "https://hitconsultant.net/2023/10/31/olive-shutters-business-after-sale-to-waystar-and-humata-health/",
+      "checked": "2026-11-18"
+    },
+    {
+      "id": "S012",
+      "title": "Olive 감원(2022-07 약 450명, 2023-02 200명)과 CEO가 밝힌 쇠퇴 요인",
+      "used_in": "조사 아카이브 P001",
+      "grade": "B",
+      "source": "Healthcare Dive 2023-11-01",
+      "url": "https://www.healthcaredive.com/news/olive-ai-shuts-down/698455/",
+      "checked": "2026-11-18"
+    },
+    {
+      "id": "S013",
+      "title": "Abridge 2026-04 $316M 확장 투자(기업 가치 $5.3B), 의료 시스템 300곳 이상 사용",
+      "used_in": "조사 아카이브 P001",
+      "grade": "B",
+      "source": "Fortune 2026-06-11",
+      "url": "https://fortune.com/2026/06/11/abridge-operating-system-medicine-nvidia-eli-lilly-artsight/",
+      "checked": "2026-11-18"
+    },
+    {
+      "id": "S014",
+      "title": "Abridge 2023-08 Epic 개발자 프로그램 첫 Pal로 Epic 진료 흐름에 통합",
+      "used_in": "조사 아카이브 P001",
+      "grade": "B",
+      "source": "Healthcare Dive 2023-08-17",
+      "url": "https://www.healthcaredive.com/news/Epic-Abridge-Partners-Pals-programs/691138/",
+      "checked": "2026-11-18"
+    },
+    {
+      "id": "S015",
+      "title": "Nabla Copilot 2023-03 크롬 확장 프로그램으로 처음 출시",
+      "used_in": "조사 아카이브 P001",
+      "grade": "B",
+      "source": "TechCrunch 2023-03-14",
+      "url": "https://techcrunch.com/2023/03/14/nabla-a-french-digital-health-startup-launches-copilot-using-gpt-3-to-turn-patient-conversations-into-actionable-items/",
+      "checked": "2026-11-18"
+    }
   ]
 }

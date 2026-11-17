@@ -1,4 +1,145 @@
 {
-  "updated": "2026-11-17",
-  "posts": []
+  "updated": "2026-11-18",
+  "posts": [
+    {
+      "id": "P001",
+      "title": "해외 AI 의료 기록·청구 자동화 4곳: Abridge, Ambience, Nabla, Olive",
+      "type": "유사 모델",
+      "conclusion": "Abridge는 Epic 진료 흐름 안으로 들어가 성장했고, Ambience는 기록과 청구를 함께 다루며 기업 가치 $1.25B에 이르렀고, Nabla는 브라우저 확장 프로그램으로 가볍게 시작해 사용자를 넓혔으며, 여러 행정 업무로 넓게 확장한 Olive는 폐업했다.",
+      "compare": [
+        {
+          "대상": "Abridge (미국)",
+          "사업 형태": "진료 대화를 녹음해 임상 기록 초안 자동 생성",
+          "고객": "의료 시스템 300곳 이상 (2026-06 보도)",
+          "수익 모델": "미확인",
+          "가격대": "미확인",
+          "핵심 자산": "Epic 개발자 프로그램 첫 Pal로 Epic 진료 흐름에 통합 (2023-08)",
+          "규모 지표": "기업 가치 $5.3B (2025-06, 2026-04 확장 투자도 같은 가치)",
+          "출처 등급": "B"
+        },
+        {
+          "대상": "Ambience Healthcare (미국)",
+          "사업 형태": "임상 기록과 청구 업무를 돕는 AI",
+          "고객": "의료 시스템",
+          "수익 모델": "미확인",
+          "가격대": "미확인",
+          "핵심 자산": "미확인",
+          "규모 지표": "기업 가치 $1.25B (2025-07)",
+          "출처 등급": "B"
+        },
+        {
+          "대상": "Nabla (프랑스·미국)",
+          "사업 형태": "진료 대화 → 임상 노트. 2023-03 크롬 확장 프로그램으로 처음 출시, 이후 EHR 연동",
+          "고객": "임상의 85,000명, 의료 조직 130곳 이상 (2025-06)",
+          "수익 모델": "미확인",
+          "가격대": "미확인",
+          "핵심 자산": "미확인",
+          "규모 지표": "누적 투자 $120M (2025-06), 기업 가치 비공개",
+          "출처 등급": "A / B"
+        },
+        {
+          "대상": "Olive AI (미국, 폐업)",
+          "사업 형태": "병원 청구·보험 행정 자동화 AI",
+          "고객": "미국 병원·의료 시스템",
+          "수익 모델": "미확인",
+          "가격대": "미확인",
+          "핵심 자산": "미확인",
+          "규모 지표": "최고 기업 가치 $4B (2021-07) → 2023-10-31 폐업 발표",
+          "출처 등급": "A / B"
+        }
+      ],
+      "facts": [
+        {
+          "text": "Abridge는 2025-06 $300M을 조달하며 기업 가치 $5.3B를 기록했고, 2026-04 $316M 확장 투자도 같은 가치였다. 2026-06 기준 의료 시스템 300곳 이상이 사용 중이라고 보도됐다",
+          "grade": "B"
+        },
+        {
+          "text": "Abridge는 2023-08 Epic의 새 개발자 프로그램에서 첫 Pal이 되어 Epic 진료 흐름 안에 통합됐다",
+          "grade": "B"
+        },
+        {
+          "text": "Ambience Healthcare는 2025-07 시리즈 C로 $243M을 조달하며 기업 가치 $1.25B를 기록했다",
+          "grade": "B"
+        },
+        {
+          "text": "Nabla Copilot은 2023-03 크롬 확장 프로그램으로 처음 출시됐다",
+          "grade": "B"
+        },
+        {
+          "text": "Nabla는 2025-06 시리즈 C $70M으로 누적 $120M, 사용 임상의 85,000명을 발표했다. 기업 가치는 공개하지 않았다",
+          "grade": "A"
+        },
+        {
+          "text": "Olive는 2021-07 $400M을 조달하며 기업 가치 $4B를 발표했다(누적 $902M). 2022-07 약 450명, 2023-02 200명을 감원하고 2023년 여러 사업부를 차례로 매각한 뒤 2023-10-31 폐업을 발표했다. CEO는 빠른 성장과 집중 부족이 자원을 압박했다고 밝혔다",
+          "grade": "B"
+        }
+      ],
+      "interpretation": [
+        "Abridge: 음성을 기록으로 바꾸는 한 가지 일에서 시작해, 병원이 이미 쓰는 EMR 흐름 안으로 들어가며 사용처를 넓혔다.",
+        "Nabla: 병원 시스템을 바꾸지 않고 브라우저 확장 프로그램으로 시작한 가벼운 형태가 초기 도입 장벽을 낮춘 것으로 보인다 (출시 형태와 사용자 수에서 추론).",
+        "Olive AI: 기업 가치가 높을 때 여러 행정 업무로 넓게 확장했으나, 회사 스스로 집중 부족을 요인으로 들었고 디지털 헬스 투자 위축도 겹쳤다."
+      ],
+      "implications": [
+        "적용할 점: 사용자가 이미 쓰는 시스템을 바꾸지 않아도 쓸 수 있는 형태가 첫 도입을 쉽게 한다 (Nabla).",
+        "적용할 점: 한 가지 핵심 기능(대화 → 기록)에 집중해 사용자가 이미 쓰는 시스템 안으로 들어간다 (Abridge).",
+        "적용하지 않을 점: 검증 전에 여러 업무로 넓게 확장하는 것 (Olive AI)."
+      ],
+      "sources": [
+        {
+          "title": "MedCity News 2025-07-29",
+          "url": "https://medcitynews.com/2025/07/healthcare-documentation-startup-unicorn/",
+          "grade": "B",
+          "checked": "2026-11-18"
+        },
+        {
+          "title": "Nabla 보도자료 2025-06-17",
+          "url": "https://www.prnewswire.com/news-releases/nabla-raises-70m-series-c-to-deliver-agentic-ai-to-the-heart-of-clinical-workflows-bringing-total-funding-to-120m-302483646.html",
+          "grade": "A",
+          "checked": "2026-11-18"
+        },
+        {
+          "title": "Olive 보도자료 2021-07-01",
+          "url": "https://prnewswire.com/news-releases/olive-hits-a-4-billion-valuation-with-400-million-of-capital-led-by-vista-equity-partners-301323850.html",
+          "grade": "A",
+          "checked": "2026-11-18"
+        },
+        {
+          "title": "HIT Consultant 2023-10-31",
+          "url": "https://hitconsultant.net/2023/10/31/olive-shutters-business-after-sale-to-waystar-and-humata-health/",
+          "grade": "B",
+          "checked": "2026-11-18"
+        },
+        {
+          "title": "Healthcare Dive 2023-11-01",
+          "url": "https://www.healthcaredive.com/news/olive-ai-shuts-down/698455/",
+          "grade": "B",
+          "checked": "2026-11-18"
+        },
+        {
+          "title": "Fortune 2026-06-11",
+          "url": "https://fortune.com/2026/06/11/abridge-operating-system-medicine-nvidia-eli-lilly-artsight/",
+          "grade": "B",
+          "checked": "2026-11-18"
+        },
+        {
+          "title": "Healthcare Dive 2023-08-17",
+          "url": "https://www.healthcaredive.com/news/Epic-Abridge-Partners-Pals-programs/691138/",
+          "grade": "B",
+          "checked": "2026-11-18"
+        },
+        {
+          "title": "TechCrunch 2023-03-14",
+          "url": "https://techcrunch.com/2023/03/14/nabla-a-french-digital-health-startup-launches-copilot-using-gpt-3-to-turn-patient-conversations-into-actionable-items/",
+          "grade": "B",
+          "checked": "2026-11-18"
+        }
+      ],
+      "tags": [
+        "유사 모델",
+        "해외",
+        "의료 기록 AI"
+      ],
+      "approved_at": "2026-11-18"
+    }
+  ]
 }
