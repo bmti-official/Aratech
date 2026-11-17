@@ -42,30 +42,38 @@
 4. 완료되면 `https://<username>.github.io/aratech/` 에서 사이트가 열린다
    (Settings → Pages 맨 위에도 주소가 표시된다)
 
-## 5. 승인 없이 바뀌지 않게 막기 (권장)
+## 5. 실수로 지워지지 않게 막기 (권장)
 
-1. Settings → **Branches** → **Add branch ruleset** (또는 Add rule)
+에이전트가 대부분의 변경을 `main`에 바로 올리므로 "PR 필수" 규칙은 켜지 않는다. 대신 기록이 지워지는 것만 막는다.
+
+1. Settings → **Rules** → **Rulesets** → **New ruleset** → **New branch ruleset**
 2. Ruleset name: `main 보호`, Enforcement status: **Active**
 3. Target branches → **Include default branch**
-4. 체크: **Require a pull request before merging**, **Require status checks to pass** → Add checks에서 `check` 추가
+4. 체크: **Restrict deletions**, **Block force pushes** (나머지는 체크하지 않음. 특히 Require a pull request before merging은 끈다)
 5. **Create**
 
-## 6. 매번 하는 일: PR 승인
+검사(`check`)는 `main`에 올라올 때마다 자동으로 돌고, 오류가 있으면 사이트 배포가 멈춘다.
 
-에이전트가 작업을 끝내면 PR(변경 요청)이 올라온다.
+## 6. 가끔 하는 일: PR 승인
 
-1. 저장소 **Pull requests** 탭 → 해당 PR 클릭
-2. **Files changed** 탭에서 바뀐 내용 확인
-3. 아래쪽 자동 검사(check)가 초록 체크인지 확인
-4. 새 Claude 대화로 검수(`prompts/05-review.md`)한 결과가 통과인지 확인
-5. **Merge pull request** → **Confirm merge**
-6. 1~2분 뒤 사이트에 반영
+사업 핵심 변경만 PR로 온다: 가설 카드 확정, 7일차 판정, 가격·인원 확정, 대형 기획 결론, 작업 규칙 변경 (`AGENTS.md` §3-1).
+나머지는 메인 에이전트가 바로 올리고, 무엇을 바꿨는지 대화에서 알려 준다. 되돌리고 싶으면 메인에게 "되돌려 줘"라고 하면 된다.
 
-반려할 때는 PR 아래 댓글에 이유를 적고 Merge하지 않는다.
+PR이 오면 메인이 링크와 볼 것을 알려 준다.
 
-## 7. Claude 프로젝트 만들기
+1. 링크를 열고 **Files changed** 탭에서 바뀐 내용 확인
+2. 아래쪽 자동 검사(check)가 초록 체크인지 확인
+3. PR 설명에 붙은 검수 결과가 "검수 통과"인지 확인
+4. **Merge pull request** → **Confirm merge**
+5. 1~2분 뒤 사이트에 반영
 
-1. claude.ai → 왼쪽 **Projects** → **New project** → 이름 `Aratech`
-2. 프로젝트 지식(Project knowledge)에 지침서 PDF와 이 저장소의 `AGENTS.md` 올리기
-3. 가설 카드, 종합, 회의 요약은 이 프로젝트 안에서 대화한다
-4. 검수는 같은 프로젝트에서 **새 대화**를 열어 한다
+반려할 때는 메인에게 이유를 말하거나 PR 댓글에 적고 Merge하지 않는다.
+
+## 7. 메인 에이전트와 일하기
+
+사람은 **Claude Code 세션 하나(메인 에이전트)** 와만 대화한다. claude.ai의 Code 탭(웹·앱)에서 이 저장소를 골라 세션을 연다.
+메인이 근거 수집, 계산, 렌즈 분석, 검수를 서브에이전트에게 나눠 맡기므로 Antigravity·Codex나 별도 Claude 채팅에 지시문을 붙여 넣을 필요가 없다.
+
+지침서 PDF는 공개 저장소에 넣지 않는다. 권한을 제한한 구글 드라이브에 두고, 메인에게 링크를 알려 주면 구글 드라이브 연결로 읽는다.
+
+claude.ai 일반 채팅의 Projects는 **필수가 아니다.** 휴대폰에서 지침서를 놓고 가볍게 묻고 싶을 때만 따로 만든다 (Projects → New project → 지침서 PDF와 `AGENTS.md` 올리기). 그 대화의 결과를 저장소에 반영할 때는 메인에게 넘긴다.

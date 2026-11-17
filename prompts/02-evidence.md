@@ -1,11 +1,10 @@
-# 02 근거 수집 — Antigravity
+# 02 근거 수집 — 근거 서브에이전트
 
 ```
 이 저장소의 AGENTS.md를 먼저 읽고 따라 줘.
 
 [작업]
-가설 사이클 {{번호}}에 필요한 공개 근거를 모아 site/data/sources.json에 추가해 줘.
-브랜치: cycle{{번호}}/sources
+가설 사이클 {{번호}}에 필요한 공개 근거를 모아 sources.json에 넣을 항목으로 정리해 줘.
 
 [찾을 것]
 {{예:
@@ -23,5 +22,6 @@
 - 상세 메모는 work/evidence/cycle{{번호}}.md에 (이 파일은 사이트에 나가지 않음)
 
 [끝나면]
-python3 scripts/check_data.py 실행 → 결과를 PR 설명에 붙여 PR을 연다. merge는 하지 않는다.
+sources.json에 넣을 항목(JSON 배열)을 work/evidence/cycle{{번호}}.json에 저장하고 메인에게 요약을 보고한다.
+site/data/는 고치지 않고, 커밋·push하지 않는다. 메인이 원문을 확인한 뒤 반영한다.
 ```
