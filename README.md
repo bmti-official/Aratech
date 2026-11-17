@@ -2,7 +2,8 @@
 
 가설 검증, 조사 아카이브, 대형 기획을 한 양식으로 쌓는 작업 사이트와 에이전트 작업 공간.
 
-- 사이트: `site/` (GitHub Pages로 자동 배포)
+- 사이트 주소: https://bmti-official.github.io/Aratech/
+- 사이트 파일: `site/` (GitHub Pages로 자동 배포)
 - 사이트 데이터: `site/data/*.json` — 에이전트는 이 파일만 고친다
 - 에이전트 규칙: [`AGENTS.md`](AGENTS.md)
 - 단계별 지시문: [`prompts/`](prompts/README.md)
