@@ -50,6 +50,14 @@
 4. 체크: **Require a pull request before merging**, **Require status checks to pass** → Add checks에서 `check` 추가
 5. **Create**
 
+## 5-1. PR 자동 열기 허용 (한 번만)
+
+에이전트가 브랜치만 올리면 GitHub이 PR을 자동으로 열게 하는 설정이다.
+
+1. Settings → 왼쪽 **Actions** → **General**
+2. 맨 아래 **Workflow permissions**
+3. **Allow GitHub Actions to create and approve pull requests** 체크 → **Save**
+
 ## 6. 매번 하는 일: PR 승인
 
 에이전트가 작업을 끝내면 PR(변경 요청)이 올라온다. 코드는 볼 필요 없다.

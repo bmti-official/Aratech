@@ -1,5 +1,7 @@
 name: check-data
 
+# 사람이 직접 연 PR에도 검사가 돌도록 남겨 둔다.
+# 변경 요약 댓글은 auto-pr.yml이 브랜치가 올라올 때마다 단다.
 on:
   pull_request:
 
@@ -15,23 +17,3 @@ jobs:
         run: python3 scripts/check_data.py
       - name: 수익 계산 결과
         run: python3 scripts/calc.py
-
-  # 바뀐 내용을 한국어 문장으로 요약해 PR 댓글로 단다
-  summary:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pull-requests: write
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: 변경 요약 만들기
-        run: python3 scripts/summarize_pr.py origin/${{ github.base_ref }} > summary.md
-      - name: PR에 댓글 달기 (있으면 고쳐 쓰기)
-        env:
-          GH_TOKEN: ${{ github.token }}
-          PR: ${{ github.event.pull_request.number }}
-        run: |
-          gh pr comment "$PR" --body-file summary.md --edit-last 2>/dev/null \
-            || gh pr comment "$PR" --body-file summary.md

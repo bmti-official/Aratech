@@ -1,0 +1,53 @@
+name: 자동 PR
+
+# main이 아닌 브랜치에 올라오면: 데이터 검사 → PR 자동 열기 → 한국어 변경 요약 댓글
+# 에이전트(Claude, Antigravity, Codex, 예약 작업)는 브랜치만 올리면 된다.
+on:
+  push:
+    branches-ignore: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 데이터 검사
+        run: python3 scripts/check_data.py
+      - name: 수익 계산 결과
+        run: python3 scripts/calc.py
+
+  open-pr:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: PR 열기 (이미 있으면 건너뜀)
+        id: pr
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRANCH: ${{ github.ref_name }}
+        run: |
+          num=$(gh pr list --head "$BRANCH" --state open --json number -q '.[0].number')
+          if [ -z "$num" ]; then
+            title=$(git log -1 --format=%s)
+            printf '자동으로 열린 PR입니다.\n\n변경 요약과 승인 방법은 아래 **📋 변경 요약** 댓글을 보세요.\n\n---\n%s\n' "$(git log -1 --format=%b)" > body.md
+            gh pr create --base main --head "$BRANCH" --title "$title" --body-file body.md
+            num=$(gh pr list --head "$BRANCH" --state open --json number -q '.[0].number')
+          fi
+          echo "num=$num" >> "$GITHUB_OUTPUT"
+      - name: 변경 요약 댓글 (있으면 고쳐 쓰기)
+        if: steps.pr.outputs.num != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ steps.pr.outputs.num }}
+        run: |
+          python3 scripts/summarize_pr.py origin/main > summary.md
+          gh pr comment "$PR" --body-file summary.md --edit-last 2>/dev/null \
+            || gh pr comment "$PR" --body-file summary.md

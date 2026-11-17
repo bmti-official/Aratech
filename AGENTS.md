@@ -38,8 +38,10 @@
 
 - 한 작업 = 한 브랜치 = 한 PR. 브랜치 이름: `cycle1/sources`, `archive/competitor-x`, `meeting/2026-11-24` 처럼.
 - 자기 담당 파일만 고친다. 다른 파일이 바뀌어야 하면 PR 설명에 적고 고치지 않는다.
-- 변경 후 `python3 scripts/check_data.py`를 실행하고 결과를 PR 설명에 붙인다.
+- 변경 후 `python3 scripts/check_data.py`를 실행해 오류 0건을 확인한다.
+- **브랜치를 push하기만 하면 된다.** GitHub이 PR을 자동으로 열고, 한국어 변경 요약 댓글을 단다 (`.github/workflows/auto-pr.yml`). PR을 따로 만들 필요 없다.
 - PR은 사람이 승인(merge)해야 사이트에 반영된다. 에이전트는 merge하지 않는다.
+- 커밋 제목은 사람이 읽을 한국어 한 줄로 쓴다. PR 제목이 된다. 예: `사이클 1 근거 3개 추가`
 - 최종본 검수는 그 글을 만든 대화가 아닌 **새 대화**에서 한다 (`prompts/05-review.md`).
 
 ## 4. 에이전트별 역할

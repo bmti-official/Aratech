@@ -20,7 +20,8 @@ Claude는 claude.ai의 **Aratech 프로젝트**(지침서 PDF를 프로젝트 �
 
 | 파일 | 용도 |
 |---|---|
-| `archive-post.md` | 조사·비교 아카이브 포스트 (Antigravity → Codex → Claude) |
+| `archive-scheduled.md` | **예약 작업**이 매주 월·목 오전 6:15에 읽는 조사 아카이브 자동 수집 지시 |
+| `archive-post.md` | 조사·비교 아카이브 포스트를 사람이 직접 요청할 때 (Antigravity → Codex → Claude) |
 | `meeting.md` | 주간 회의 요약 반영 |
 | `verdict.md` | 7일차 판정과 회고 |
 | `bigplan/1-question.md` → `3-lens.md` → `4-rebuttal.md` → `5-synthesis.md` | 대형 기획 3개 관점 분석 (근거 팩은 1에 안내) |
