@@ -1,0 +1,11 @@
+{
+  "updated": "2026-11-17",
+  "items": [
+    { "id": "S001", "title": "첫 가설 후보: 물리치료사 AI 임상 비서 교육", "used_in": "가설 카드", "grade": "C", "source": "내부 결정 (지침서)", "url": null, "checked": null },
+    { "id": "S002", "title": "타이밍 후보 3개 (입사·이직 직후, 연초·학기, 기록 업무 직후)", "used_in": "가설 카드", "grade": "C", "source": "가설", "url": null, "checked": null },
+    { "id": "S003", "title": "N: 국내 물리치료사 인원", "used_in": "수익 계산", "grade": null, "source": "미확인 · 에이전트 조사 예정", "url": null, "checked": null },
+    { "id": "S004", "title": "LTV가 CAC의 3배 이상이어야 한다", "used_in": "수익 계산 점검선", "grade": "B", "source": "업계 경험칙 · 출처 링크 미기입", "url": null, "checked": null },
+    { "id": "S005", "title": "손실이 이득보다 약 2배 크게 느껴진다", "used_in": "심리 이론 검증", "grade": "C", "source": "연구마다 편차 큼 · 실험값으로 교체", "url": null, "checked": null },
+    { "id": "S006", "title": "노출 대비 신청 전환율 c", "used_in": "수익 계산", "grade": "C", "source": "랜딩 테스트 전", "url": null, "checked": null }
+  ]
+}
