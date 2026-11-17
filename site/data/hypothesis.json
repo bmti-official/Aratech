@@ -9,32 +9,103 @@
     "ladder_stage": 1
   },
   "card": [
-    { "key": "가설 한 줄", "value": "AI 임상 비서 교육이 문서·기록 업무 부담을 줄여 준다고 느끼는가", "grade": "C" },
-    { "key": "맥락 신호 (X)", "value": "신규 입사·이직 직후 / 연초·학기 시작 / 기록 업무 직후 중 1개", "grade": "C" },
-    { "key": "개입 (Y) · 비교 조건", "value": null, "placeholder": "미정 · 초대 형태, 무작위 또는 고정 시점과 비교" },
-    { "key": "행동 지표 (Z)", "value": "대기자 등록 · 신청률" },
-    { "key": "반증 기준", "value": null, "placeholder": "K%p 미만이면 기각 · 숫자 미정" },
-    { "key": "투입 상한 · 제외 목록", "value": null, "placeholder": "시간·비용 미정 · 환자 정보 사용, 두 번째 가설 동시 진행 제외" }
+    {
+      "key": "가설 한 줄",
+      "value": "AI 임상 비서 교육이 문서·기록 업무 부담을 줄여 준다고 느끼는가",
+      "grade": "C"
+    },
+    {
+      "key": "맥락 신호 (X)",
+      "value": "신규 입사·이직 직후 / 연초·학기 시작 / 기록 업무 직후 중 1개",
+      "grade": "C"
+    },
+    {
+      "key": "개입 (Y) · 비교 조건",
+      "value": null,
+      "placeholder": "미정 · 초대 형태, 무작위 또는 고정 시점과 비교"
+    },
+    {
+      "key": "행동 지표 (Z)",
+      "value": "대기자 등록 · 신청률"
+    },
+    {
+      "key": "반증 기준",
+      "value": null,
+      "placeholder": "K%p 미만이면 기각 · 숫자 미정"
+    },
+    {
+      "key": "투입 상한 · 제외 목록",
+      "value": null,
+      "placeholder": "시간·비용 미정 · 환자 정보 사용, 두 번째 가설 동시 진행 제외"
+    }
   ],
   "verdict": null,
   "start_conditions": [
-    { "text": "인터뷰 개인정보 방침 확정 (동의, 익명화, 보관 기간)", "done": false },
-    { "text": "커리큘럼 초안 입력", "done": false },
-    { "text": "반증 기준과 투입 상한 확정", "done": false },
-    { "text": "측정 방법 준비 (신청 폼, 집계표)", "done": false },
-    { "text": "첫 타이밍 후보 1개 선택", "done": false }
+    {
+      "text": "인터뷰 개인정보 방침 확정 (동의, 익명화, 보관 기간)",
+      "done": false
+    },
+    {
+      "text": "커리큘럼 초안 입력",
+      "done": false
+    },
+    {
+      "text": "반증 기준과 투입 상한 확정",
+      "done": false
+    },
+    {
+      "text": "측정 방법 준비 (신청 폼, 집계표)",
+      "done": false
+    },
+    {
+      "text": "첫 타이밍 후보 1개 선택",
+      "done": false
+    }
   ],
   "next_steps": [
-    { "text": "인터뷰 개인정보 방침 확정", "done": false },
-    { "text": "커리큘럼 초안 입력", "done": false },
-    { "text": "사이트 초안 전달", "done": true },
-    { "text": "수익 계산에서 시장 설명 입력, 가격·인원 추천 3개 중 선택", "done": false },
-    { "text": "가설 사이클 시작일 결정", "done": false }
+    {
+      "text": "인터뷰 개인정보 방침 확정",
+      "done": false
+    },
+    {
+      "text": "커리큘럼 초안 입력",
+      "done": false
+    },
+    {
+      "text": "사이트 초안 전달",
+      "done": true
+    },
+    {
+      "text": "수익 계산에서 시장 설명 입력, 가격·인원 추천 3개 중 선택",
+      "done": false
+    },
+    {
+      "text": "가설 사이클 시작일 결정",
+      "done": false
+    }
   ],
   "timing": [
-    { "code": "M", "name": "동기·결핍", "meaning": "불편을 느끼는 정도", "signals": "인터뷰에서 반복된 문제, 관련 문의", "value": null },
-    { "code": "T", "name": "상황 트리거", "meaning": "루틴이 바뀌는 시점", "signals": "신규 입사, 연초, 보수교육·학회 시즌, 기록 업무 직후", "value": null },
-    { "code": "F", "name": "마찰", "meaning": "행동을 막는 요소", "signals": "신청까지 클릭 수, 소요 시간, 모바일 여부", "value": null }
+    {
+      "code": "M",
+      "name": "동기·결핍",
+      "meaning": "불편을 느끼는 정도",
+      "signals": "인터뷰에서 반복된 문제, 관련 문의",
+      "value": null
+    },
+    {
+      "code": "T",
+      "name": "상황 트리거",
+      "meaning": "루틴이 바뀌는 시점",
+      "signals": "신규 입사, 연초, 보수교육·학회 시즌, 기록 업무 직후",
+      "value": null
+    },
+    {
+      "code": "F",
+      "name": "마찰",
+      "meaning": "행동을 막는 요소",
+      "signals": "신청까지 클릭 수, 소요 시간, 모바일 여부",
+      "value": null
+    }
   ],
   "history": []
 }

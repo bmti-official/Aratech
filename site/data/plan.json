@@ -1,9 +1,24 @@
 {
   "updated": "2026-11-17",
   "packs": [
-    { "id": "A", "title": "수익 모델과 심리 이론", "status": "대기", "blocker": "입력값 필요" },
-    { "id": "B", "title": "불안·욕망, 커리큘럼", "status": "대기", "blocker": "인터뷰 필요" },
-    { "id": "C", "title": "AGI 시대 병목", "status": "대기", "blocker": null }
+    {
+      "id": "A",
+      "title": "수익 모델과 심리 이론",
+      "status": "대기",
+      "blocker": "입력값 필요"
+    },
+    {
+      "id": "B",
+      "title": "불안·욕망, 커리큘럼",
+      "status": "대기",
+      "blocker": "인터뷰 필요"
+    },
+    {
+      "id": "C",
+      "title": "AGI 시대 병목",
+      "status": "대기",
+      "blocker": null
+    }
   ],
   "conclusions": []
 }

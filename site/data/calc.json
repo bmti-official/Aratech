@@ -3,32 +3,133 @@
   "status": "example",
   "status_note": "모든 값은 화면 동작을 보여 주는 예시이며 가정(C)입니다.",
   "inputs": [
-    { "key": "N", "name": "대상 시장 인원", "unit": "명", "value": null, "step": 100, "grade": null, "note": "미확인 · 에이전트가 통계 조사" },
-    { "key": "P", "name": "교육 가격", "unit": "원", "value": 290000, "step": 10000, "grade": "C", "recommend": true },
-    { "key": "M", "name": "목표 판매 인원", "unit": "명", "value": 100, "step": 10, "grade": "C", "recommend": true },
-    { "key": "c", "name": "노출 대비 신청 전환율", "unit": "%", "value": 2, "step": 0.5, "grade": "C" },
-    { "key": "CAC", "name": "1명 확보 비용", "unit": "원", "value": 30000, "step": 5000, "grade": "C" },
-    { "key": "VC", "name": "1명당 변동비", "unit": "원", "value": 20000, "step": 5000, "grade": "C" },
-    { "key": "FC", "name": "고정비", "unit": "원", "value": 5000000, "step": 500000, "grade": "C" },
-    { "key": "k", "name": "1인당 구매 횟수", "unit": "회", "value": 1, "step": 1, "grade": "C" }
+    {
+      "key": "N",
+      "name": "대상 시장 인원",
+      "unit": "명",
+      "value": null,
+      "step": 100,
+      "grade": null,
+      "note": "미확인 · 에이전트가 통계 조사"
+    },
+    {
+      "key": "P",
+      "name": "교육 가격",
+      "unit": "원",
+      "value": 290000,
+      "step": 10000,
+      "grade": "C",
+      "recommend": true
+    },
+    {
+      "key": "M",
+      "name": "목표 판매 인원",
+      "unit": "명",
+      "value": 100,
+      "step": 10,
+      "grade": "C",
+      "recommend": true
+    },
+    {
+      "key": "c",
+      "name": "노출 대비 신청 전환율",
+      "unit": "%",
+      "value": 2,
+      "step": 0.5,
+      "grade": "C"
+    },
+    {
+      "key": "CAC",
+      "name": "1명 확보 비용",
+      "unit": "원",
+      "value": 30000,
+      "step": 5000,
+      "grade": "C"
+    },
+    {
+      "key": "VC",
+      "name": "1명당 변동비",
+      "unit": "원",
+      "value": 20000,
+      "step": 5000,
+      "grade": "C"
+    },
+    {
+      "key": "FC",
+      "name": "고정비",
+      "unit": "원",
+      "value": 5000000,
+      "step": 500000,
+      "grade": "C"
+    },
+    {
+      "key": "k",
+      "name": "1인당 구매 횟수",
+      "unit": "회",
+      "value": 1,
+      "step": 1,
+      "grade": "C"
+    }
   ],
   "recommendations": {
     "P": {
       "title": "교육 가격 (P)",
       "sub": "추천 3개 · 모두 예시 값, 근거 전까지 가정(C)",
       "options": [
-        { "id": "A", "lens": "틸 관점", "value": 390000, "why": "고유 가치에 맞춘 가격, 작은 시장에서 시작", "risk": "전환율이 낮으면 필요 도달 인원이 크게 늘어납니다", "grade": "C" },
-        { "id": "B", "lens": "게이츠 관점", "value": 99000, "why": "보급과 생태계, 낮은 진입 가격", "risk": "판매 인원이 목표에 못 미치면 고정비를 회수하지 못합니다", "grade": "C" },
-        { "id": "C", "lens": "절충", "value": 290000, "why": "두 관점의 중간 가격대", "risk": "비교 상품 가격 근거가 없으면 두 관점의 위험을 모두 안습니다", "grade": "C" }
+        {
+          "id": "A",
+          "lens": "틸 관점",
+          "value": 390000,
+          "why": "고유 가치에 맞춘 가격, 작은 시장에서 시작",
+          "risk": "전환율이 낮으면 필요 도달 인원이 크게 늘어납니다",
+          "grade": "C"
+        },
+        {
+          "id": "B",
+          "lens": "게이츠 관점",
+          "value": 99000,
+          "why": "보급과 생태계, 낮은 진입 가격",
+          "risk": "판매 인원이 목표에 못 미치면 고정비를 회수하지 못합니다",
+          "grade": "C"
+        },
+        {
+          "id": "C",
+          "lens": "절충",
+          "value": 290000,
+          "why": "두 관점의 중간 가격대",
+          "risk": "비교 상품 가격 근거가 없으면 두 관점의 위험을 모두 안습니다",
+          "grade": "C"
+        }
       ]
     },
     "M": {
       "title": "목표 판매 인원 (M)",
       "sub": "추천 3개 · 모두 예시 값, N 조사 전까지 가정(C)",
       "options": [
-        { "id": "A", "lens": "틸 관점", "value": 50, "why": "작은 시장에서 압도적 1위부터", "risk": "매출 규모가 작아 고정비 대비 여유가 적습니다", "grade": "C" },
-        { "id": "B", "lens": "게이츠 관점", "value": 300, "why": "넓은 보급을 전제로 한 목표", "risk": "필요 도달 인원이 많아 CAC가 오를 수 있습니다", "grade": "C" },
-        { "id": "C", "lens": "절충", "value": 100, "why": "두 관점의 중간", "risk": "N의 몇 %인지 확인 전까지 근거가 없습니다", "grade": "C" }
+        {
+          "id": "A",
+          "lens": "틸 관점",
+          "value": 50,
+          "why": "작은 시장에서 압도적 1위부터",
+          "risk": "매출 규모가 작아 고정비 대비 여유가 적습니다",
+          "grade": "C"
+        },
+        {
+          "id": "B",
+          "lens": "게이츠 관점",
+          "value": 300,
+          "why": "넓은 보급을 전제로 한 목표",
+          "risk": "필요 도달 인원이 많아 CAC가 오를 수 있습니다",
+          "grade": "C"
+        },
+        {
+          "id": "C",
+          "lens": "절충",
+          "value": 100,
+          "why": "두 관점의 중간",
+          "risk": "N의 몇 %인지 확인 전까지 근거가 없습니다",
+          "grade": "C"
+        }
       ]
     }
   }
