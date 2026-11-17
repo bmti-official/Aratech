@@ -28,4 +28,4 @@ meetings.json의 meetings에 들어갈 항목으로, summary·decisions는 비�
 사이트용 JSON에는 실명·개인정보·수익 숫자 전체를 넣지 마.
 ```
 
-이후 PR → 05 검수 → 06 승인.
+이후 main에 바로 push (PR 없음). 사람에게 바뀐 내용을 한두 줄로 알린다.

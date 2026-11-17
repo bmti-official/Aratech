@@ -1,23 +1,25 @@
 # AGENTS.md — Aratech 작업 규칙
 
-이 저장소에서 일하는 모든 에이전트(Claude, Antigravity, Codex)는 작업 전에 이 파일을 읽고 따른다.
+이 저장소에서 일하는 모든 에이전트는 작업 전에 이 파일을 읽고 따른다.
 판정과 게시는 사람(사업 총괄 · 멘토)이 한다. 에이전트는 근거와 선택지를 만든다.
+
+**사람은 메인 에이전트와만 대화한다.** 메인 에이전트(이 저장소를 연 Claude Code 세션)가 일을 나눠 Gemini와 Claude 서브에이전트에게 맡기고, 결과를 받아 검사한 뒤 저장소에 반영한다. 사람이 서브에이전트에게 직접 지시문을 붙여 넣을 필요는 없다.
 
 ## 1. 저장소 구조
 
 | 경로 | 내용 | 누가 고치나 |
 |---|---|---|
 | `site/index.html` | 사이트 화면. 데이터를 읽어 그리기만 한다 | 화면을 바꾸라는 요청이 있을 때만 |
-| `site/data/hypothesis.json` | 현재 가설 사이클, 가설 카드, 시작 조건, 다음 단계, 타이밍 점수, 사이클 히스토리 | Claude |
-| `site/data/sources.json` | 근거 목록 (출처·등급·확인일) | Antigravity |
-| `site/data/calc.json` | 수익 계산 입력값과 P·M 추천 3개 | Codex (추천 문구는 Claude) |
-| `site/data/meetings.json` | 일정, 주간 요약, 회의 상단 요약 | Claude |
-| `site/data/posts.json` | 조사·비교 아카이브 포스트 | Claude (재료는 Antigravity·Codex) |
-| `site/data/plan.json` | 대형 기획 질문 팩 상태, 검수한 결론 | Claude |
+| `site/data/hypothesis.json` | 현재 가설 사이클, 가설 카드, 시작 조건, 다음 단계, 타이밍 점수, 사이클 히스토리 | 메인 |
+| `site/data/sources.json` | 근거 목록 (출처·등급·확인일) | Gemini → 메인 |
+| `site/data/calc.json` | 수익 계산 입력값과 P·M 추천 3개 | 메인 |
+| `site/data/meetings.json` | 일정, 주간 요약, 회의 상단 요약 | 메인 |
+| `site/data/posts.json` | 조사·비교 아카이브 포스트 | 메인 (재료는 Gemini) |
+| `site/data/plan.json` | 대형 기획 질문 팩 상태, 검수한 결론 | 메인 |
 | `work/` | 에이전트 중간 산출물 (근거 메모, 계산 결과, 렌즈 분석 초안) | 모두. 사이트에 나가지 않음 |
-| `prompts/` | 단계별 지시문 템플릿 | 사람 |
+| `prompts/` | 단계별 지시문 템플릿. 메인이 서브에이전트에게 줄 때 쓴다 | 사람 승인(PR) |
 | `scripts/check_data.py` | 데이터 검사. 변경 전후로 반드시 실행 | — |
-| `scripts/calc.py` | 수익 계산 (R, Reach, BEP, LTV, 3개 시나리오) | Codex |
+| `scripts/calc.py` | 수익 계산 (R, Reach, BEP, LTV, 3개 시나리오) | 메인 |
 | `docs/schema.md` | 데이터 파일 형식 | — |
 
 **사이트에 보이는 것은 `site/data/` 뿐이다.** 공개해도 되는 검수 결과만 여기에 넣는다.
@@ -34,26 +36,62 @@
 8. **사실과 해석을 나눈다**: 출처로 확인된 사실과 에이전트의 해석을 다른 칸에 적는다.
 9. **확인일**: 출처마다 확인일(`YYYY-MM-DD`)을 적는다. 90일이 지나면 화면에 "재확인 필요"가 자동으로 붙는다.
 
-## 3. 작업 방식
+## 3. 작업 방식: 대부분 바로 올리고, 사업 핵심만 PR
 
-- 한 작업 = 한 브랜치 = 한 PR. 브랜치 이름: `cycle1/sources`, `archive/competitor-x`, `meeting/2026-11-24` 처럼.
-- 자기 담당 파일만 고친다. 다른 파일이 바뀌어야 하면 PR 설명에 적고 고치지 않는다.
-- 변경 후 `python3 scripts/check_data.py`를 실행하고 결과를 PR 설명에 붙인다.
-- PR은 사람이 승인(merge)해야 사이트에 반영된다. 에이전트는 merge하지 않는다.
-- 최종본 검수는 그 글을 만든 대화가 아닌 **새 대화**에서 한다 (`prompts/05-review.md`).
+### 3-1. PR로 올리고 사람이 승인하는 것 (사업 핵심)
 
-## 4. 에이전트별 역할
+| # | 무엇 | 파일 |
+|---|---|---|
+| 1 | 가설 카드 확정·변경 (가설 한 줄, 개입·비교 조건, 반증 기준, 투입 상한), 사이클 시작 | `hypothesis.json` |
+| 2 | 7일차 판정(`verdict`)과 사이클 히스토리 | `hypothesis.json` |
+| 3 | 가격(P)·인원(M) 확정, `calc.json`의 `status`를 `example`·`draft`에서 바꿀 때 | `calc.json` |
+| 4 | 대형 기획 결론 | `plan.json`의 `conclusions` |
+| 5 | 작업 규칙 변경 | `AGENTS.md`, `prompts/`, `scripts/`, `.github/` |
+| 6 | 공개해도 되는지 메인이 판단하기 어려운 내용 | 어느 파일이든 |
 
-| 에이전트 | 가설 검증 | 조사 아카이브 | 대형 기획 |
+- 브랜치 이름: `cycle1/card`, `cycle1/verdict`, `bigplan/2026-12-01` 처럼.
+- PR 전에 검수 서브에이전트(§4)를 돌리고, 결과와 `check_data.py` 결과를 PR 설명에 붙인다.
+- 에이전트는 merge하지 않는다. 메인은 PR 링크와 사람이 볼 것 3줄 이내를 사람에게 알린다.
+
+### 3-2. 바로 `main`에 올리는 것 (그 밖의 전부)
+
+근거 추가(`sources.json`), 일정·회의 요약(`meetings.json`), 다음 단계·시작 조건 체크, 타이밍 점수, 근거가 생긴 계산 입력값(N 등, `status`는 `draft` 유지), `work/` 아래 모든 파일, 화면 수정(요청이 있을 때), 오타.
+
+- 이 파일이 `main`에 바로 push하는 것을 허락한다. 세션이 정해 준 작업 브랜치가 있으면 거기서 커밋한 뒤 `main`으로 합쳐 push한다.
+- 올리기 전에 `python3 scripts/check_data.py`를 실행해 **오류 0건**일 때만 push한다. 경고는 커밋 메시지에 적는다.
+- 조사 아카이브 포스트(`posts.json`)는 검수 서브에이전트가 "검수 통과"를 낸 뒤에만 올린다.
+- 한 작업 = 한 커밋. 커밋 메시지 앞에 영역을 붙인다: `[근거]`, `[일정]`, `[계산]`, `[포스트]`, `[작업]`.
+- 올린 뒤 사람에게 무엇이 바뀌었는지 한두 줄로 알린다. 사람이 되돌리라고 하면 `git revert`로 되돌린다.
+- 공통 원칙(§2)은 PR이 없어도 똑같이 지킨다. 특히 개인정보와 공개 범위.
+
+## 4. 메인 에이전트와 서브에이전트
+
+메인 에이전트는 사업 총괄의 Mac에서 연 Claude Code 세션이다. Claude 사용량을 아끼기 위해 많이 읽는 일(웹 검색, 렌즈 초안)은 **Antigravity CLI**(`agy`, 사업 총괄의 Google AI Pro 구독으로 로그인, 모델은 Gemini)에 맡기고, 판단·검수·최종 문장은 Claude가 한다. 사람은 메인과만 대화하고, 메인이 Gemini와 Claude 서브에이전트에게 지시한다.
+
+| 일 | 누가 | 지시문 | 결과를 두는 곳 |
 |---|---|---|---|
-| Claude (메인) | 가설 카드, 글·도식 종합 | 원문 확인, 해석·시사점, 포스트 완성 | 질문 정의, 틸 렌즈, 종합 |
-| Antigravity | 근거 수집 → `sources.json` | 공개 자료 수집, 출처 목록 | 근거 팩, 게이츠 렌즈 |
-| Codex | 계산·그래프 → `calc.json`, `work/` | 비교표 데이터 정리, 빈 칸 표시 | 저커버그 렌즈 |
-| 새 Claude 대화 | 검수 | 검수 | 검수 |
-| 사람 | 승인 | 게시 승인 | 결정 3가지와 공개 범위 |
+| 근거 수집 | **Gemini** | `02-evidence.md`, 아카이브 1단계, 대형 기획 근거 팩 | `work/evidence/`, `work/archive/`, `work/bigplan/` |
+| 계산 | 메인 (`scripts/calc.py` 실행) | `03-calc.md`, 아카이브 2단계 | `work/calc/`, `work/archive/` |
+| 틸 렌즈 | Claude 서브에이전트 | `bigplan/3-lens.md` | `work/bigplan/<날짜>/lens-thiel.md` |
+| 게이츠 렌즈 | **Gemini** (실행 1) | `bigplan/3-lens.md` | `work/bigplan/<날짜>/lens-gates.md` |
+| 저커버그 렌즈 | **Gemini** (실행 2, 실행 1과 별개) | `bigplan/3-lens.md` | `work/bigplan/<날짜>/lens-zuckerberg.md` |
+| 검수 | 새 Claude 서브에이전트 | `05-review.md` | 메인에게 보고 → PR 설명 |
+| 가설 카드, 종합, 회의 요약, 포스트 완성, 커밋·push·PR | 메인 | 01, 04, meeting, verdict, bigplan 1·5 | `site/data/` |
 
-Codex 한도가 부족하면 Claude가 저커버그 렌즈를 대신하되, 다른 렌즈와 **다른 대화**에서 한다.
-대형 기획의 세 렌즈는 서로의 결과를 보지 않고 분석한다. 렌즈 초안은 `work/bigplan/<날짜>/` 아래 각자 파일로 둔다.
+### Gemini에게 맡기는 방법
+- 메인이 저장소 폴더에서 `agy -p "<지시문>" --mode accept-edits --print-timeout 900s`를 실행한다 (파일 수정만 자동 허락).
+- `--dangerously-skip-permissions`는 쓰지 않는다. 명령 실행 허락이 필요해 멈추면 사람에게 알린다.
+- 표에서 "Gemini"는 이 Antigravity CLI 실행을 뜻한다. Gemini CLI는 개인 구독 로그인이 막혀(2026-06-18) 쓰지 않는다.
+- 실행마다 새 대화로 시작하므로 렌즈 두 개를 따로 실행하면 서로의 결과를 보지 않는다.
+- 지시문 끝에 "결과는 지정한 `work/` 파일에 저장하고, 화면에는 10줄 이내 요약만" 을 붙인다. 메인은 요약과 필요한 부분만 읽어 Claude 사용량을 줄인다.
+- Gemini는 외부 도구다. 지시문에는 공개해도 되는 내용만 넣는다 (§2-7). 비공개 사업 계획, 수익 숫자 전체, 인터뷰 내용은 넣지 않는다.
+- Gemini가 낸 숫자와 출처는 메인이 원문 링크를 열어 확인한 뒤 `site/data/`에 반영한다. 확인하지 못한 것은 "미확인"으로 둔다.
+
+### 공통 규칙
+- Gemini와 서브에이전트는 `work/` 아래에만 파일을 쓰고 커밋·push하지 않는다. `site/data/` 반영과 커밋은 메인이 한다.
+- 교차 반박(`4-rebuttal.md`)은 세 렌즈 파일이 모두 나온 뒤 새로 실행한다 (틸은 새 Claude 서브에이전트, 게이츠·저커버그는 새 Gemini 실행).
+- 검수는 그 내용을 만든 쪽이 아닌 새 Claude 서브에이전트로 한다.
+- Antigravity CLI를 쓸 수 없을 때(클라우드 세션, 한도 초과, 로그인 만료)는 사람에게 먼저 알리고, 허락하면 Claude 서브에이전트가 대신한다.
 
 ## 5. 가설 사이클 규칙
 
