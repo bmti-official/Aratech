@@ -1,4 +1,4 @@
-# 02 근거 수집 — 근거 서브에이전트
+# 02 근거 수집 — Gemini (메인이 실행)
 
 ```
 이 저장소의 AGENTS.md를 먼저 읽고 따라 줘.
@@ -22,6 +22,6 @@
 - 상세 메모는 work/evidence/cycle{{번호}}.md에 (이 파일은 사이트에 나가지 않음)
 
 [끝나면]
-sources.json에 넣을 항목(JSON 배열)을 work/evidence/cycle{{번호}}.json에 저장하고 메인에게 요약을 보고한다.
+sources.json에 넣을 항목(JSON 배열)을 work/evidence/cycle{{번호}}.json에 저장하고 화면에는 10줄 이내 요약만 출력한다.
 site/data/는 고치지 않고, 커밋·push하지 않는다. 메인이 원문을 확인한 뒤 반영한다.
 ```

@@ -544,7 +544,7 @@ ul.plain,ol.plain{margin:0;padding-left:22px;display:flex;flex-direction:column;
       <section>
         <div class="row-head"><h2>포스트</h2></div>
         <div id="post-list" style="display:flex;flex-direction:column;gap:20px"></div>
-        <div class="empty" id="post-empty"><b>게시된 조사 포스트가 없습니다</b><span>근거 서브에이전트가 공개 자료를 모으고, 계산 서브에이전트가 비교표로 정리하고, 메인 에이전트가 해석과 시사점을 쓴 뒤 검수를 통과하면 여기 올라옵니다.</span></div>
+        <div class="empty" id="post-empty"><b>게시된 조사 포스트가 없습니다</b><span>Gemini가 공개 자료를 모으고, 메인 에이전트가 해석과 시사점을 쓴 뒤 검수를 통과하면 여기 올라옵니다.</span></div>
       </section>
       <section>
         <div class="row-head"><h2>포스트 양식</h2><span class="tag tM">빈 양식</span></div>
@@ -655,8 +655,8 @@ ul.plain,ol.plain{margin:0;padding-left:22px;display:flex;flex-direction:column;
         <div class="row-head"><h2>세 렌즈는 서로 보지 않고 분석한 뒤 교차 반박합니다</h2></div>
         <div class="steps">
           <div class="step"><b>1. 질문 정의</b><span>Claude · 질문, 입력값, 공개 범위</span></div>
-          <div class="step"><b>2. 근거 팩</b><span>근거 서브에이전트 · 공통 자료와 출처 등급</span></div>
-          <div class="step"><b>3. 세 렌즈 독립 분석</b><span>렌즈 서브에이전트 3개가 서로의 결과를 보지 않고 분석</span></div>
+          <div class="step"><b>2. 근거 팩</b><span>Gemini · 공통 자료와 출처 등급</span></div>
+          <div class="step"><b>3. 세 렌즈 독립 분석</b><span>틸 Claude · 게이츠·저커버그 Gemini, 서로의 결과를 보지 않고 분석</span></div>
           <div class="step"><b>4. 교차 반박</b><span>각 렌즈가 다른 둘의 약점을 1개씩</span></div>
           <div class="step"><b>5. 종합</b><span>Claude · 합의, 충돌, 숫자</span></div>
           <div class="step human"><b>6. 사람 결정</b><span>사업 총괄·멘토 · 결정 3가지와 공개 범위</span></div>
@@ -667,9 +667,9 @@ ul.plain,ol.plain{margin:0;padding-left:22px;display:flex;flex-direction:column;
         <div class="tcard"><div class="tscroll"><table>
           <thead><tr><th>렌즈</th><th>담당</th><th>점검 항목</th></tr></thead>
           <tbody>
-            <tr><td><div class="who"><span class="av" style="background:var(--t-pink)">틸</span>틸</div></td><td>렌즈 서브에이전트 1</td><td>크게 우월한 기술, 네트워크 효과, 규모의 경제, 브랜드, 비밀, 타이밍, 작은 시장에서 넓히는 경로</td></tr>
-            <tr><td><div class="who"><span class="av" style="background:var(--t-blue)">게</span>게이츠</div></td><td>렌즈 서브에이전트 2</td><td>플랫폼과 생태계, 표준과 호환성, 배포 채널, 낮은 한계비용, 전환 비용</td></tr>
-            <tr><td><div class="who"><span class="av" style="background:var(--t-yellow)">저</span>저커버그</div></td><td>렌즈 서브에이전트 3</td><td>네트워크 효과와 성장 속도, 핵심 지표 중심 반복, 커뮤니티 성장, 경쟁 위협 대응</td></tr>
+            <tr><td><div class="who"><span class="av" style="background:var(--t-pink)">틸</span>틸</div></td><td>Claude</td><td>크게 우월한 기술, 네트워크 효과, 규모의 경제, 브랜드, 비밀, 타이밍, 작은 시장에서 넓히는 경로</td></tr>
+            <tr><td><div class="who"><span class="av" style="background:var(--t-blue)">게</span>게이츠</div></td><td>Gemini</td><td>플랫폼과 생태계, 표준과 호환성, 배포 채널, 낮은 한계비용, 전환 비용</td></tr>
+            <tr><td><div class="who"><span class="av" style="background:var(--t-yellow)">저</span>저커버그</div></td><td>Gemini</td><td>네트워크 효과와 성장 속도, 핵심 지표 중심 반복, 커뮤니티 성장, 경쟁 위협 대응</td></tr>
           </tbody></table></div></div>
       </section>
       <section>

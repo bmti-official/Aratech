@@ -1,4 +1,4 @@
-# 03 계산·그래프 — 계산 서브에이전트
+# 03 계산·그래프 — 메인
 
 ```
 이 저장소의 AGENTS.md를 먼저 읽고 따라 줘.
@@ -20,6 +20,6 @@ work/calc/cycle{{번호}}.md에 표로 저장한다. LTV/CAC 3배는 업계 경�
 work/calc/ 아래에 PNG로 저장. 사이트에는 넣지 않는다 (사이트 그래프는 데이터에서 자동으로 그림).
 
 [끝나면]
-바꿀 calc.json 입력값을 work/calc/cycle{{번호}}.md 맨 위에 적고 메인에게 보고한다. 커밋·push하지 않는다.
+바꿀 calc.json 입력값을 work/calc/cycle{{번호}}.md 맨 위에 적는다.
 calc.json의 status는 사람이 PR로 승인하기 전까지 "example" 또는 "draft".
 ```

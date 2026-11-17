@@ -69,11 +69,47 @@ PR이 오면 메인이 링크와 볼 것을 알려 준다.
 
 반려할 때는 메인에게 이유를 말하거나 PR 댓글에 적고 Merge하지 않는다.
 
-## 7. 메인 에이전트와 일하기
+## 7. Mac에 Gemini CLI 설치 (한 번만)
 
-사람은 **Claude Code 세션 하나(메인 에이전트)** 와만 대화한다. claude.ai의 Code 탭(웹·앱)에서 이 저장소를 골라 세션을 연다.
-메인이 근거 수집, 계산, 렌즈 분석, 검수를 서브에이전트에게 나눠 맡기므로 Antigravity·Codex나 별도 Claude 채팅에 지시문을 붙여 넣을 필요가 없다.
+메인 에이전트(Claude)가 근거 수집과 렌즈 초안을 Gemini에게 맡기려면 Mac에 Gemini CLI가 있어야 한다. Gemini Pro 구독 계정으로 로그인한다.
+
+1. **터미널 열기**: `⌘ + 스페이스` → `터미널` 입력 → Enter
+2. **Node.js 확인**: 아래를 붙여 넣고 Enter
+   ```bash
+   node -v
+   ```
+   - `v20` 이상 숫자가 나오면 3번으로
+   - `command not found`가 나오면 https://nodejs.org 에서 **LTS** 버전 macOS 설치 파일(.pkg)을 받아 설치한 뒤, 터미널을 닫았다가 다시 열고 `node -v`를 다시 확인
+3. **Gemini CLI 설치**: 아래를 붙여 넣고 Enter. Mac 로그인 비밀번호를 물으면 입력한다 (입력해도 화면에 안 보이는 게 정상)
+   ```bash
+   sudo npm install -g @google/gemini-cli
+   ```
+4. **로그인**: 아래를 실행
+   ```bash
+   gemini
+   ```
+   - 처음 화면에서 색 테마는 아무거나 고르고 Enter
+   - 로그인 방법은 **Login with Google** → 브라우저가 열리면 **Gemini Pro를 구독한 Google 계정**으로 로그인 → 허용
+   - 터미널에 입력창이 나오면 성공. `/quit` 입력 후 Enter로 나온다
+5. **확인**: 아래를 실행해 답이 나오면 끝
+   ```bash
+   gemini -p "안녕이라고만 답해"
+   ```
+
+## 8. 메인 에이전트와 일하기
+
+사람은 **Mac에서 연 Claude Code 세션 하나(메인 에이전트)** 와만 대화한다. Gemini 로그인은 Mac에만 있으므로 메인도 Mac에서 열어야 Gemini에게 일을 시킬 수 있다.
+
+1. 저장소를 Mac에 내려받기 (한 번만). 터미널에서:
+   ```bash
+   git clone https://github.com/bmti-official/Aratech.git ~/Aratech
+   ```
+   개발자 도구 설치 창이 뜨면 **설치**를 누르고, 끝나면 같은 명령을 다시 실행한다.
+2. Claude 데스크톱 앱 → **Code** 탭 → 폴더로 `~/Aratech`(홈 폴더의 Aratech)를 고른다.
+3. 그 세션에서 평소처럼 말한다. 메인이 필요할 때 Gemini와 Claude 서브에이전트에게 일을 나눠 준다.
+
+웹·휴대폰의 클라우드 세션에서는 Gemini를 쓸 수 없다. 그때 메인은 Gemini 몫을 Claude가 대신해도 되는지 먼저 묻는다.
 
 지침서 PDF는 공개 저장소에 넣지 않는다. 권한을 제한한 구글 드라이브에 두고, 메인에게 링크를 알려 주면 구글 드라이브 연결로 읽는다.
 
-claude.ai 일반 채팅의 Projects는 **필수가 아니다.** 휴대폰에서 지침서를 놓고 가볍게 묻고 싶을 때만 따로 만든다 (Projects → New project → 지침서 PDF와 `AGENTS.md` 올리기). 그 대화의 결과를 저장소에 반영할 때는 메인에게 넘긴다.
+claude.ai 일반 채팅의 Projects는 **필수가 아니다.** 휴대폰에서 지침서를 놓고 가볍게 묻고 싶을 때만 따로 만든다. 그 대화의 결과를 저장소에 반영할 때는 메인에게 넘긴다.
