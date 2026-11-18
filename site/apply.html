@@ -72,7 +72,9 @@ ol{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px}
    (use a Google Form prefilled-answer link so each sign-up records its group).
    goatcounter: GoatCounter count endpoint, e.g. "https://CODE.goatcounter.com/count".
    It records one page view per group (/apply-A, /apply-B) with no cookies; null = no counting. */
-const CONFIG = { formUrl: null, schedule: null, price: null, goatcounter: null };
+const CONFIG = {
+  formUrl: "https://docs.google.com/forms/d/1HN_s3TtQr5ct8vpVo8NaPECmyNMzQtrT-5_mBUVfwX8/viewform?usp=pp_url&entry.953407684={v}",
+  schedule: null, price: null, goatcounter: null };
 
 const COPY = {
   A: { title: "환자 정보를 지키며 음성으로 차팅하는 법, 실습으로 배워요",
