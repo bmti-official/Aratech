@@ -322,9 +322,8 @@ ul.plain,ol.plain{margin:0;padding-left:22px;display:flex;flex-direction:column;
       <a href="#home"><svg viewBox="0 0 24 24"><path d="M4 10.5L12 4l8 6.5V20H4z"/><path class="cut" d="M10 17h4" fill="none"/></svg>홈</a>
       <a href="#calendar"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path class="cut" d="M8 3v4M16 3v4M3.5 10h17M8 14h2M12 14h2" fill="none"/></svg>캘린더·회의</a>
       <a href="#archive" data-views="archive hypothesis calc"><svg viewBox="0 0 24 24"><path d="M4 9l1.5-5h13L20 9v2a3 3 0 0 1-5.3 1.9A3 3 0 0 1 12 14a3 3 0 0 1-2.7-1.1A3 3 0 0 1 4 11z"/><path d="M5.5 13.5V20h13v-6.5"/></svg>조사·검증</a>
-      <a href="#evidence"><svg viewBox="0 0 24 24"><rect x="4" y="3.5" width="16" height="17" rx="2.5"/><circle class="cut" cx="12" cy="10" r="2.6" fill="none"/><path class="cut" d="M7.5 17c1-2.2 2.6-3 4.5-3s3.5.8 4.5 3" fill="none"/></svg>근거 자료</a>
-      <a href="#plan"><svg viewBox="0 0 24 24"><path d="M13 3L5 13h6l-1 8 8-10h-6z"/></svg>대형 기획<span class="pro">제한</span></a>
-      <a href="#rules"><svg viewBox="0 0 24 24"><path d="M4 4v16h16"/><path d="M7.5 15l3.5-4 3 2.5 4.5-5.5"/></svg>운영 원칙</a>
+      <a href="#evidence" data-views="evidence rules"><svg viewBox="0 0 24 24"><rect x="4" y="3.5" width="16" height="17" rx="2.5"/><circle class="cut" cx="12" cy="10" r="2.6" fill="none"/><path class="cut" d="M7.5 17c1-2.2 2.6-3 4.5-3s3.5.8 4.5 3" fill="none"/></svg>근거·원칙</a>
+      <a href="#plan" data-views="plan postnatal"><svg viewBox="0 0 24 24"><path d="M13 3L5 13h6l-1 8 8-10h-6z"/></svg>사업기획<span class="pro">제한</span></a>
     </nav>
     <div class="me"><span class="av" style="background:#C5DE9E">총괄</span><span>사업 총괄</span></div>
   </aside>
@@ -588,6 +587,7 @@ ul.plain,ol.plain{margin:0;padding-left:22px;display:flex;flex-direction:column;
 
   <!-- EVIDENCE (Contacts layout) -->
   <div class="view" id="v-evidence" hidden>
+    <div class="subtabs"><h1 class="grp">근거·원칙</h1><nav class="tabs" aria-label="근거·원칙"><a href="#evidence">근거 자료</a><a href="#rules">운영 원칙</a></nav></div>
     <div class="pagebar" style="justify-content:space-between"><h1>근거 자료</h1><span class="btn btn-ink" style="padding:14px 26px;font-size:16px">＋ 에이전트가 근거 추가</span></div>
     <div class="inner content">
       <div class="legend"><span class="tag tA">A</span>공식 자료·논문·통계 <span class="tag tB">B</span>보도·업계 자료 <span class="tag tC">C</span>가정·추정 <span class="tag tW">재확인 필요</span>확인일 90일 경과</div>
@@ -619,7 +619,8 @@ ul.plain,ol.plain{margin:0;padding-left:22px;display:flex;flex-direction:column;
 
   <!-- PLAN -->
   <div class="view" id="v-plan" hidden>
-    <div class="pagebar" style="justify-content:space-between"><h1>대형 기획</h1><span class="pro" style="font-size:13px;padding:4px 14px">제한 문서 · 결론만 공개</span></div>
+    <div class="subtabs"><h1 class="grp">사업기획</h1><nav class="tabs" aria-label="사업기획"><a href="#plan">AI 교육 기획</a><a href="#postnatal">산전산후 센터 기획</a></nav></div>
+    <div class="pagebar" style="justify-content:space-between"><h1>AI 교육 기획</h1><span class="pro" style="font-size:13px;padding:4px 14px">제한 문서 · 결론만 공개</span></div>
     <div class="inner content">
       <section>
         <div class="row-head"><h2>질문 팩</h2><div class="viewall"><span class="muted small">월 1~2회 · 한 건에 질문 하나</span></div></div>
@@ -658,8 +659,18 @@ ul.plain,ol.plain{margin:0;padding-left:22px;display:flex;flex-direction:column;
     </div>
   </div>
 
+  <!-- POSTNATAL -->
+  <div class="view" id="v-postnatal" hidden>
+    <div class="subtabs"><h1 class="grp">사업기획</h1><nav class="tabs" aria-label="사업기획"><a href="#plan">AI 교육 기획</a><a href="#postnatal">산전산후 센터 기획</a></nav></div>
+    <div class="pagebar" style="justify-content:space-between"><h1>산전산후 센터 기획</h1><span class="pro" style="font-size:13px;padding:4px 14px">제한 문서 · 결론만 공개</span></div>
+    <div class="inner content">
+      <div class="empty"><b>아직 등록된 기획이 없습니다</b><span>질문을 정하고 검수한 결론이 생기면 결론 한 줄과 제한 문서 링크만 이곳에 올립니다.</span></div>
+    </div>
+  </div>
+
   <!-- RULES -->
   <div class="view" id="v-rules" hidden>
+    <div class="subtabs"><h1 class="grp">근거·원칙</h1><nav class="tabs" aria-label="근거·원칙"><a href="#evidence">근거 자료</a><a href="#rules">운영 원칙</a></nav></div>
     <div class="pagebar"><h1>운영 원칙</h1></div>
     <div class="inner content">
       <section>
@@ -671,7 +682,7 @@ ul.plain,ol.plain{margin:0;padding-left:22px;display:flex;flex-direction:column;
             <tr><td>조사 아카이브 포스트 (출처 포함)</td><td><span class="tag tA">사이트 · 검수 후</span></td></tr>
             <tr><td>회의 요약</td><td><span class="tag tA">사이트 · 검수 후</span></td></tr>
             <tr><td>전체 회의록</td><td><span class="tag tP">권한을 제한한 구글 독스</span></td></tr>
-            <tr><td>대형 기획 전체 분석, 수익 숫자, 독점 전략</td><td><span class="tag tP">제한 문서</span> 사이트에는 검수한 결론 한 줄</td></tr>
+            <tr><td>사업기획 전체 분석, 수익 숫자, 독점 전략</td><td><span class="tag tP">제한 문서</span> 사이트에는 검수한 결론 한 줄</td></tr>
             <tr><td>인터뷰 원본, 개인정보</td><td><span class="tag tW">어디에도 올리지 않음</span></td></tr>
           </tbody></table></div></div>
       </section>
@@ -738,7 +749,7 @@ const icoStyle=c=>c==='warn'?'background:var(--warn-bg);color:var(--warn)':`back
 const D={};
 
 /* routing */
-const views=['home','hypothesis','calendar','archive','calc','evidence','plan','rules'];
+const views=['home','hypothesis','calendar','archive','calc','evidence','plan','postnatal','rules'];
 function route(){const h=location.hash.slice(1);const v=views.includes(h)?h:'home';
   views.forEach(x=>$('#v-'+x).hidden=x!==v);
   $$('.nav a').forEach(a=>(a.dataset.views||a.getAttribute('href').slice(1)).split(' ').includes(v)?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
