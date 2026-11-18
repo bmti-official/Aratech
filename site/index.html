@@ -61,6 +61,13 @@ button{font:inherit;cursor:pointer;color:inherit}
 .navbtn:hover{background:var(--panel)}
 .navbtn svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round}
 .ttl{display:flex;align-items:center;gap:12px;min-width:0}
+.subtabs{display:flex;align-items:center;gap:14px 32px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-block:18px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:861px){.subtabs{padding-left:64px;padding-right:48px}}
+.subtabs .grp{font-size:clamp(22px,2.2vw,28px)}
+.tabs{display:flex;gap:6px;background:var(--panel);border-radius:999px;padding:4px;overflow-x:auto;scrollbar-width:none;max-width:100%}
+.tabs a{flex:none;padding:8px 18px;border-radius:999px;color:var(--fg);text-decoration:none;font-weight:500;font-size:15px}
+.tabs a:hover{background:var(--surface)}
+.tabs a[aria-current="page"]{background:var(--ink);color:var(--ink-fg)}
 .topbar .navbtn{color:#fff}
 .topbar .navbtn:hover{background:rgb(255 255 255 / .12)}
 .brand{display:flex;align-items:center;gap:12px;padding:0 26px 44px;font-family:var(--f-body);font-weight:600;font-size:25px;letter-spacing:-.01em}
@@ -313,10 +320,8 @@ ul.plain,ol.plain{margin:0;padding-left:22px;display:flex;flex-direction:column;
     </div>
     <nav class="nav" aria-label="영역">
       <a href="#home"><svg viewBox="0 0 24 24"><path d="M4 10.5L12 4l8 6.5V20H4z"/><path class="cut" d="M10 17h4" fill="none"/></svg>홈</a>
-      <a href="#hypothesis"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2.5"/><path class="cut" d="M8 3v4M16 3v4M4 10h16" fill="none"/></svg>가설 검증</a>
       <a href="#calendar"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path class="cut" d="M8 3v4M16 3v4M3.5 10h17M8 14h2M12 14h2" fill="none"/></svg>캘린더·회의</a>
-      <a href="#archive"><svg viewBox="0 0 24 24"><path d="M4 9l1.5-5h13L20 9v2a3 3 0 0 1-5.3 1.9A3 3 0 0 1 12 14a3 3 0 0 1-2.7-1.1A3 3 0 0 1 4 11z"/><path d="M5.5 13.5V20h13v-6.5"/></svg>조사 아카이브</a>
-      <a href="#calc"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="14" rx="2.5"/><path class="cut" d="M3.5 8.5l8.5 5.5 8.5-5.5" fill="none"/></svg>수익 계산</a>
+      <a href="#archive" data-views="archive hypothesis calc"><svg viewBox="0 0 24 24"><path d="M4 9l1.5-5h13L20 9v2a3 3 0 0 1-5.3 1.9A3 3 0 0 1 12 14a3 3 0 0 1-2.7-1.1A3 3 0 0 1 4 11z"/><path d="M5.5 13.5V20h13v-6.5"/></svg>조사·검증</a>
       <a href="#evidence"><svg viewBox="0 0 24 24"><rect x="4" y="3.5" width="16" height="17" rx="2.5"/><circle class="cut" cx="12" cy="10" r="2.6" fill="none"/><path class="cut" d="M7.5 17c1-2.2 2.6-3 4.5-3s3.5.8 4.5 3" fill="none"/></svg>근거 자료</a>
       <a href="#plan"><svg viewBox="0 0 24 24"><path d="M13 3L5 13h6l-1 8 8-10h-6z"/></svg>대형 기획<span class="pro">제한</span></a>
       <a href="#rules"><svg viewBox="0 0 24 24"><path d="M4 4v16h16"/><path d="M7.5 15l3.5-4 3 2.5 4.5-5.5"/></svg>운영 원칙</a>
@@ -373,6 +378,7 @@ ul.plain,ol.plain{margin:0;padding-left:22px;display:flex;flex-direction:column;
 
   <!-- HYPOTHESIS (Create Reminder layout) -->
   <div class="view" id="v-hypothesis" hidden>
+    <div class="subtabs"><h1 class="grp">조사·검증</h1><nav class="tabs" aria-label="조사·검증"><a href="#archive">조사 아카이브</a><a href="#hypothesis">가설 검증</a><a href="#calc">수익 계산</a></nav></div>
     <div class="split">
       <div class="l">
         <h1 style="font-size:clamp(28px,3vw,38px)">가설 카드 만들기</h1>
@@ -489,6 +495,7 @@ ul.plain,ol.plain{margin:0;padding-left:22px;display:flex;flex-direction:column;
 
   <!-- ARCHIVE (Shop layout) -->
   <div class="view" id="v-archive" hidden>
+    <div class="subtabs"><h1 class="grp">조사·검증</h1><nav class="tabs" aria-label="조사·검증"><a href="#archive">조사 아카이브</a><a href="#hypothesis">가설 검증</a><a href="#calc">수익 계산</a></nav></div>
     <div class="pagebar"><h1>조사 아카이브</h1>
       <form class="search" role="search" onsubmit="event.preventDefault();renderPosts()"><svg><use href="#srch"/></svg><input id="aq" placeholder="경쟁사, 유사 모델 검색…" aria-label="아카이브 검색"></form></div>
     <div class="pagebar" style="padding-block:28px">
@@ -536,6 +543,7 @@ ul.plain,ol.plain{margin:0;padding-left:22px;display:flex;flex-direction:column;
 
   <!-- CALC (Checkout layout) -->
   <div class="view" id="v-calc" hidden>
+    <div class="subtabs"><h1 class="grp">조사·검증</h1><nav class="tabs" aria-label="조사·검증"><a href="#archive">조사 아카이브</a><a href="#hypothesis">가설 검증</a><a href="#calc">수익 계산</a></nav></div>
     <div class="topbar"><a href="#home"><svg width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7.5 2.5L4 6l3.5 3.5"/></svg>뒤로</a><b>수익 계산 · 질문 팩 A</b><span></span></div>
     <div class="co">
       <div class="l">
@@ -709,7 +717,7 @@ const $=s=>document.querySelector(s);
 const $$=s=>Array.from(document.querySelectorAll(s));
 /* side menu: hidden until the ☰ button beside a page title is clicked */
 function setNav(open){$('.app').classList.toggle('nav-open',open);$('#navscrim').hidden=!open;$$('.navbtn').forEach(b=>b.setAttribute('aria-expanded',open));if(open)setTimeout(()=>$('#rail a')?.focus(),220)}
-$$('.view').forEach(v=>{const h=v.querySelector('.hero-top .title, .pagebar h1, .topbar > a, .split .l > h1');if(!h)return;
+$$('.view').forEach(v=>{const h=v.querySelector('.subtabs .grp, .hero-top .title, .pagebar h1, .topbar > a, .split .l > h1');if(!h)return;
   const w=document.createElement('div');w.className='ttl';h.replaceWith(w);
   const b=document.createElement('button');b.type='button';b.className='navbtn';b.setAttribute('aria-label','메뉴 열기');b.setAttribute('aria-controls','rail');b.setAttribute('aria-expanded','false');
   b.innerHTML='<svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';b.addEventListener('click',()=>setNav(true));w.append(b,h)});
@@ -733,7 +741,8 @@ const D={};
 const views=['home','hypothesis','calendar','archive','calc','evidence','plan','rules'];
 function route(){const h=location.hash.slice(1);const v=views.includes(h)?h:'home';
   views.forEach(x=>$('#v-'+x).hidden=x!==v);
-  $$('.nav a').forEach(a=>a.getAttribute('href')==='#'+v?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
+  $$('.nav a').forEach(a=>(a.dataset.views||a.getAttribute('href').slice(1)).split(' ').includes(v)?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
+  $$('.tabs a').forEach(a=>a.getAttribute('href')==='#'+v?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
   window.scrollTo(0,0)}
 addEventListener('hashchange',route);
 function goSearch(sel){const q=$(sel).value.trim();location.hash='evidence';$('#ev-q').value=q;renderEv()}

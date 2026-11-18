@@ -63,13 +63,16 @@ ol{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px}
 
   <div><a class="cta" id="cta" href="#">신청하기</a></div>
   <p class="note" id="cta-note"></p>
+  <p class="note" id="count-note" hidden>이 페이지는 안내문 종류별 열람 수만 셉니다. 쿠키를 쓰지 않고 개인을 알아보는 정보는 모으지 않습니다.</p>
 </main>
 
 <script>
 /* Cycle 1 landing: one link, two invitations shown 50:50 at random.
    Fill CONFIG before sharing the link. formUrl may contain {v}, replaced with A or B
-   (use a Google Form prefilled-answer link so each sign-up records its group). */
-const CONFIG = { formUrl: null, schedule: null, price: null };
+   (use a Google Form prefilled-answer link so each sign-up records its group).
+   goatcounter: GoatCounter count endpoint, e.g. "https://CODE.goatcounter.com/count".
+   It records one page view per group (/apply-A, /apply-B) with no cookies; null = no counting. */
+const CONFIG = { formUrl: null, schedule: null, price: null, goatcounter: null };
 
 const COPY = {
   A: { title: "환자 정보를 지키며 음성으로 차팅하는 법, 실습으로 배워요",
@@ -98,6 +101,14 @@ const cta = document.getElementById("cta"), note = document.getElementById("cta-
 if (CONFIG.formUrl) { cta.href = CONFIG.formUrl.replace("{v}", g); cta.target = "_blank"; cta.rel = "noopener"; }
 else { cta.setAttribute("aria-disabled", "true"); cta.textContent = "신청 준비 중"; note.textContent = "신청 양식을 준비하고 있습니다."; }
 document.documentElement.dataset.group = g;
+if (CONFIG.goatcounter && !new URLSearchParams(location.search).has("v")) {   /* previews are not counted */
+  window.goatcounter = { no_onload: true };
+  const sc = document.createElement("script");
+  sc.async = true; sc.src = "https://gc.zgo.at/count.js"; sc.dataset.goatcounter = CONFIG.goatcounter;
+  sc.onload = () => window.goatcounter.count({ path: "/apply-" + g, title: "apply " + g, event: false });
+  document.head.appendChild(sc);
+  document.getElementById("count-note").hidden = false;
+}
 </script>
 </body>
 </html>
