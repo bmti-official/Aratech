@@ -61,6 +61,13 @@ button{font:inherit;cursor:pointer;color:inherit}
 .navbtn:hover{background:var(--panel)}
 .navbtn svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round}
 .ttl{display:flex;align-items:center;gap:12px;min-width:0}
+.vhead{position:sticky;top:0;z-index:30;transition:transform .25s ease}
+.subtabs.vhead{background:var(--bg)}
+body.hdr-hide .vhead{transform:translateY(-110%)}
+.jump{position:fixed;right:max(12px,env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:35;display:flex;flex-direction:column;gap:6px}
+.jump button{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--fg);box-shadow:var(--shadow);display:grid;place-items:center;opacity:.85}
+.jump button:hover{opacity:1}
+.jump svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2}
 .subtabs{display:flex;align-items:center;gap:14px 32px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-block:18px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 @media (min-width:861px){.subtabs{padding-left:64px;padding-right:48px}}
 .subtabs .grp{font-size:clamp(22px,2.2vw,28px)}
@@ -69,43 +76,7 @@ button{font:inherit;cursor:pointer;color:inherit}
 .tabs a:hover{background:var(--surface)}
 .tabs a[aria-current="page"]{background:var(--ink);color:var(--ink-fg)}
 .topbar .navbtn{color:#fff}
-/* edit mode */
-.editbtn{position:fixed;top:12px;right:16px;z-index:40;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:999px;padding:6px 14px;font-size:13.5px;font-weight:600;box-shadow:var(--shadow)}
-body.editing .editbtn{background:var(--ink);color:var(--ink-fg);border-color:var(--ink)}
-.edit-panel{background:var(--accent-soft);border-bottom:1px solid var(--line);padding-block:20px;display:flex;flex-direction:column;gap:16px}
-.ehead{display:flex;gap:6px 14px;flex-wrap:wrap;align-items:baseline}
-.enote{font-size:13.5px;color:var(--muted)}
-.esec{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:10px}
-.esec h3{font-family:var(--f-body);font-size:15px;display:flex;align-items:center;gap:8px}
-.etag{font-size:11.5px;font-weight:600;border-radius:999px;padding:1px 8px}
-.etag.ed{background:var(--gA-bg,#E3F1E6);color:var(--fg)}
-.etag.ep{background:var(--pro-bg);color:var(--pro-fg)}
-.edit-panel input[type=text],.edit-panel input[type=number],.edit-panel input[type=date],.edit-panel input[type=time],.edit-panel select,.edit-panel textarea,#edlg input{font:inherit;font-size:16px;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;min-width:0;width:100%}
-.edit-panel textarea{resize:vertical}
-.edit-panel label,#edlg label{display:flex;flex-direction:column;gap:4px;font-size:13.5px;color:var(--muted)}
-.egrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:10px}
-.efull{grid-column:1/-1}
-.egrade{max-width:180px}
-.erow{display:flex;gap:8px;align-items:center}
-.erow input[type=checkbox]{width:20px;height:20px;flex:none}
-.erow.ewrap{flex-wrap:wrap}
-.erow.ewrap > input,.erow.ewrap > select{flex:1 1 150px}
-.ecard{border-top:1px solid var(--line);padding-top:10px}
-.eid{flex:0 0 100%;font-size:13px}
-.eshort{flex:0 0 64px!important;width:64px!important}
-.emini{flex:none;font-size:13px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--fg)}
-.esec > .emini{align-self:flex-start}
-.ebar{position:fixed;left:0;right:0;bottom:0;z-index:45;display:flex;gap:8px 12px;align-items:center;flex-wrap:wrap;justify-content:flex-end;background:var(--surface);border-top:1px solid var(--line);box-shadow:0 -6px 20px rgb(0 0 0 / .08);padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
-.ebar #ebar-count{margin-right:auto;font-size:14px}
-.ebar .btn{padding:9px 16px;font-size:14px}
-.ebar .btn:disabled{opacity:.45;cursor:not-allowed}
-body.editing main{padding-bottom:84px}
-@media (max-width:600px){body.editing main{padding-bottom:130px}.ebar #ebar-count{flex:1 0 100%}}
-.ebox{background:var(--surface);color:var(--fg);border-radius:18px;width:min(100%,760px);max-height:calc(100dvh - 32px);overflow:auto;padding:clamp(18px,4vw,30px);display:flex;flex-direction:column;gap:14px}
-.ebox h2{font-family:var(--f-display);font-size:24px}
-.etable td,.etable th{font-size:13px;padding:8px 10px;vertical-align:top;word-break:break-all}
-.eerr{background:var(--warn-bg);color:var(--warn);border-radius:10px;padding:12px 14px}
-.eact{display:flex;gap:10px;flex-wrap:wrap}
+
 .topbar .navbtn:hover{background:rgb(255 255 255 / .12)}
 .brand{display:flex;align-items:center;gap:12px;padding:0 26px 44px;font-family:var(--f-body);font-weight:600;font-size:25px;letter-spacing:-.01em}
 .brand svg{width:36px;height:36px}
@@ -358,28 +329,22 @@ ul.plain,ol.plain{margin:0;padding-left:22px;display:flex;flex-direction:column;
     <nav class="nav" aria-label="영역">
       <a href="#home"><svg viewBox="0 0 24 24"><path d="M4 10.5L12 4l8 6.5V20H4z"/><path class="cut" d="M10 17h4" fill="none"/></svg>홈</a>
       <a href="#calendar"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path class="cut" d="M8 3v4M16 3v4M3.5 10h17M8 14h2M12 14h2" fill="none"/></svg>캘린더·회의</a>
-      <a href="#plan" data-views="plan postnatal"><svg viewBox="0 0 24 24"><path d="M13 3L5 13h6l-1 8 8-10h-6z"/></svg>사업기획<span class="pro">제한</span></a>
-      <a href="#archive" data-views="archive hypothesis calc"><svg viewBox="0 0 24 24"><path d="M4 9l1.5-5h13L20 9v2a3 3 0 0 1-5.3 1.9A3 3 0 0 1 12 14a3 3 0 0 1-2.7-1.1A3 3 0 0 1 4 11z"/><path d="M5.5 13.5V20h13v-6.5"/></svg>조사·검증</a>
+      <a href="#plan" data-views="plan postnatal calc theory"><svg viewBox="0 0 24 24"><path d="M13 3L5 13h6l-1 8 8-10h-6z"/></svg>사업기획<span class="pro">제한</span></a>
+      <a href="#archive" data-views="archive hypothesis"><svg viewBox="0 0 24 24"><path d="M4 9l1.5-5h13L20 9v2a3 3 0 0 1-5.3 1.9A3 3 0 0 1 12 14a3 3 0 0 1-2.7-1.1A3 3 0 0 1 4 11z"/><path d="M5.5 13.5V20h13v-6.5"/></svg>조사·검증</a>
       <a href="#evidence" data-views="evidence rules"><svg viewBox="0 0 24 24"><rect x="4" y="3.5" width="16" height="17" rx="2.5"/><circle class="cut" cx="12" cy="10" r="2.6" fill="none"/><path class="cut" d="M7.5 17c1-2.2 2.6-3 4.5-3s3.5.8 4.5 3" fill="none"/></svg>근거·원칙</a>
     </nav>
     <div class="me"><span class="av" style="background:#C5DE9E">총괄</span><span>사업 총괄</span></div>
   </aside>
 
   <div class="navscrim" id="navscrim" hidden></div>
-  <button type="button" class="editbtn" id="edit-btn">편집</button>
-  <div class="ebar" id="ebar" hidden><span id="ebar-count"></span><button type="button" class="btn btn-soft" id="ebar-preview">미리보기</button><button type="button" class="btn btn-ink" id="ebar-save">저장</button><button type="button" class="btn btn-soft" id="ebar-done">편집 끝내기</button></div>
-  <div class="scrim" id="edlg" hidden><div class="ebox" role="dialog" aria-modal="true" id="edlg-body"></div></div>
+  <div class="jump"><button type="button" id="to-top" aria-label="맨 위로"><svg viewBox="0 0 12 12"><path d="M2.5 7.5L6 4l3.5 3.5"/></svg></button><button type="button" id="to-bottom" aria-label="맨 아래로"><svg viewBox="0 0 12 12"><path d="M2.5 4.5L6 8l3.5-3.5"/></svg></button></div>
   <main>
 
   <!-- HOME -->
   <div class="view" id="v-home">
-    <div class="hero inner">
+    <div class="hero inner vhead">
       <div class="hero-top">
         <div class="title">Aratech</div>
-        <form class="search" role="search" onsubmit="event.preventDefault();goSearch('#q')">
-          <svg><use href="#srch"/></svg>
-          <input id="q" placeholder="가설, 조사 포스트, 근거 검색…" aria-label="검색">
-        </form>
       </div>
     </div>
 
@@ -417,7 +382,7 @@ ul.plain,ol.plain{margin:0;padding-left:22px;display:flex;flex-direction:column;
 
   <!-- HYPOTHESIS (Create Reminder layout) -->
   <div class="view" id="v-hypothesis" hidden>
-    <div class="subtabs"><h1 class="grp">조사·검증</h1><nav class="tabs" aria-label="조사·검증"><a href="#archive">조사 아카이브</a><a href="#hypothesis">가설 검증</a><a href="#calc">수익 계산</a></nav></div>
+    <div class="subtabs vhead"><h1 class="grp">조사·검증</h1><nav class="tabs" aria-label="조사·검증"><a href="#archive">조사 아카이브</a><a href="#hypothesis">가설 검증</a></nav></div>
     <div class="split">
       <div class="l">
         <h1 style="font-size:clamp(28px,3vw,38px)">가설 카드 만들기</h1>
@@ -489,6 +454,7 @@ ul.plain,ol.plain{margin:0;padding-left:22px;display:flex;flex-direction:column;
 
   <!-- CALENDAR -->
   <div class="view" id="v-calendar" hidden>
+    <div class="subtabs vhead"><h1 class="grp">캘린더·회의</h1></div>
     <div class="calwrap">
       <div style="min-width:0">
         <div class="pagebar" style="border-bottom:0"><h1 id="cal-title">11월</h1></div>
@@ -534,7 +500,7 @@ ul.plain,ol.plain{margin:0;padding-left:22px;display:flex;flex-direction:column;
 
   <!-- ARCHIVE (Shop layout) -->
   <div class="view" id="v-archive" hidden>
-    <div class="subtabs"><h1 class="grp">조사·검증</h1><nav class="tabs" aria-label="조사·검증"><a href="#archive">조사 아카이브</a><a href="#hypothesis">가설 검증</a><a href="#calc">수익 계산</a></nav></div>
+    <div class="subtabs vhead"><h1 class="grp">조사·검증</h1><nav class="tabs" aria-label="조사·검증"><a href="#archive">조사 아카이브</a><a href="#hypothesis">가설 검증</a></nav></div>
     <div class="pagebar"><h1>조사 아카이브</h1>
       <form class="search" role="search" onsubmit="event.preventDefault();renderPosts()"><svg><use href="#srch"/></svg><input id="aq" placeholder="경쟁사, 유사 모델 검색…" aria-label="아카이브 검색"></form></div>
     <div class="pagebar" style="padding-block:28px">
@@ -582,7 +548,7 @@ ul.plain,ol.plain{margin:0;padding-left:22px;display:flex;flex-direction:column;
 
   <!-- CALC (Checkout layout) -->
   <div class="view" id="v-calc" hidden>
-    <div class="subtabs"><h1 class="grp">조사·검증</h1><nav class="tabs" aria-label="조사·검증"><a href="#archive">조사 아카이브</a><a href="#hypothesis">가설 검증</a><a href="#calc">수익 계산</a></nav></div>
+    <div class="subtabs vhead"><h1 class="grp">사업기획</h1><nav class="tabs" aria-label="사업기획"><a href="#calc">수익 계산</a><a href="#plan">AI 교육 기획</a><a href="#postnatal">산전산후 센터 기획</a><a href="#theory">공통 이론</a></nav></div>
     <div class="topbar"><a href="#home"><svg width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7.5 2.5L4 6l3.5 3.5"/></svg>뒤로</a><b>수익 계산 · 질문 팩 A</b><span></span></div>
     <div class="co">
       <div class="l">
@@ -627,7 +593,7 @@ ul.plain,ol.plain{margin:0;padding-left:22px;display:flex;flex-direction:column;
 
   <!-- EVIDENCE (Contacts layout) -->
   <div class="view" id="v-evidence" hidden>
-    <div class="subtabs"><h1 class="grp">근거·원칙</h1><nav class="tabs" aria-label="근거·원칙"><a href="#evidence">근거 자료</a><a href="#rules">운영 원칙</a></nav></div>
+    <div class="subtabs vhead"><h1 class="grp">근거·원칙</h1><nav class="tabs" aria-label="근거·원칙"><a href="#evidence">근거 자료</a><a href="#rules">운영 원칙</a></nav></div>
     <div class="pagebar" style="justify-content:space-between"><h1>근거 자료</h1><span class="btn btn-ink" style="padding:14px 26px;font-size:16px">＋ 에이전트가 근거 추가</span></div>
     <div class="inner content">
       <div class="legend"><span class="tag tA">A</span>공식 자료·논문·통계 <span class="tag tB">B</span>보도·업계 자료 <span class="tag tC">C</span>가정·추정 <span class="tag tW">재확인 필요</span>확인일 90일 경과</div>
@@ -659,7 +625,7 @@ ul.plain,ol.plain{margin:0;padding-left:22px;display:flex;flex-direction:column;
 
   <!-- PLAN -->
   <div class="view" id="v-plan" hidden>
-    <div class="subtabs"><h1 class="grp">사업기획</h1><nav class="tabs" aria-label="사업기획"><a href="#plan">AI 교육 기획</a><a href="#postnatal">산전산후 센터 기획</a></nav></div>
+    <div class="subtabs vhead"><h1 class="grp">사업기획</h1><nav class="tabs" aria-label="사업기획"><a href="#calc">수익 계산</a><a href="#plan">AI 교육 기획</a><a href="#postnatal">산전산후 센터 기획</a><a href="#theory">공통 이론</a></nav></div>
     <div class="pagebar" style="justify-content:space-between"><h1>AI 교육 기획</h1><span class="pro" style="font-size:13px;padding:4px 14px">제한 문서 · 결론만 공개</span></div>
     <div class="inner content">
       <section>
@@ -670,6 +636,19 @@ ul.plain,ol.plain{margin:0;padding-left:22px;display:flex;flex-direction:column;
           <div class="item"><div class="tile" style="background:var(--t-navy);color:#fff"><div class="big" style="border:2px solid #fff;padding:10px 16px">병목 · 독점</div><div class="tiny">필수성 · 대체 불가성 · 소유 가능성</div></div><span class="label">C. AGI 시대 병목</span><span class="sub">대기</span></div>
         </div>
       </section>
+      <section>
+        <div class="row-head"><h2>검수한 결론</h2></div>
+        <div id="conclusions" style="display:flex;flex-direction:column;gap:16px"></div>
+        <div class="empty" id="conclusions-empty"><b>공개된 결론이 없습니다</b><span>사람이 결정한 뒤 결론 한 줄과 제한 문서 링크만 이곳에 올립니다.</span></div>
+      </section>
+    </div>
+  </div>
+
+  <!-- THEORY -->
+  <div class="view" id="v-theory" hidden>
+    <div class="subtabs vhead"><h1 class="grp">사업기획</h1><nav class="tabs" aria-label="사업기획"><a href="#calc">수익 계산</a><a href="#plan">AI 교육 기획</a><a href="#postnatal">산전산후 센터 기획</a><a href="#theory">공통 이론</a></nav></div>
+    <div class="pagebar"><h1>공통 이론</h1><span class="muted small">모든 사업기획에 같이 쓰는 분석 틀</span></div>
+    <div class="inner content">
       <section>
         <div class="row-head"><h2>세 렌즈는 서로 보지 않고 분석한 뒤 교차 반박합니다</h2></div>
         <div class="steps">
@@ -691,17 +670,12 @@ ul.plain,ol.plain{margin:0;padding-left:22px;display:flex;flex-direction:column;
             <tr><td><div class="who"><span class="av" style="background:var(--t-yellow)">저</span>저커버그</div></td><td>Gemini</td><td>네트워크 효과와 성장 속도, 핵심 지표 중심 반복, 커뮤니티 성장, 경쟁 위협 대응</td></tr>
           </tbody></table></div></div>
       </section>
-      <section>
-        <div class="row-head"><h2>검수한 결론</h2></div>
-        <div id="conclusions" style="display:flex;flex-direction:column;gap:16px"></div>
-        <div class="empty" id="conclusions-empty"><b>공개된 결론이 없습니다</b><span>사람이 결정한 뒤 결론 한 줄과 제한 문서 링크만 이곳에 올립니다.</span></div>
-      </section>
     </div>
   </div>
 
   <!-- POSTNATAL -->
   <div class="view" id="v-postnatal" hidden>
-    <div class="subtabs"><h1 class="grp">사업기획</h1><nav class="tabs" aria-label="사업기획"><a href="#plan">AI 교육 기획</a><a href="#postnatal">산전산후 센터 기획</a></nav></div>
+    <div class="subtabs vhead"><h1 class="grp">사업기획</h1><nav class="tabs" aria-label="사업기획"><a href="#calc">수익 계산</a><a href="#plan">AI 교육 기획</a><a href="#postnatal">산전산후 센터 기획</a><a href="#theory">공통 이론</a></nav></div>
     <div class="pagebar" style="justify-content:space-between"><h1>산전산후 센터 기획</h1><span class="pro" style="font-size:13px;padding:4px 14px">제한 문서 · 결론만 공개</span></div>
     <div class="inner content">
       <div class="empty"><b>아직 등록된 기획이 없습니다</b><span>질문을 정하고 검수한 결론이 생기면 결론 한 줄과 제한 문서 링크만 이곳에 올립니다.</span></div>
@@ -710,7 +684,7 @@ ul.plain,ol.plain{margin:0;padding-left:22px;display:flex;flex-direction:column;
 
   <!-- RULES -->
   <div class="view" id="v-rules" hidden>
-    <div class="subtabs"><h1 class="grp">근거·원칙</h1><nav class="tabs" aria-label="근거·원칙"><a href="#evidence">근거 자료</a><a href="#rules">운영 원칙</a></nav></div>
+    <div class="subtabs vhead"><h1 class="grp">근거·원칙</h1><nav class="tabs" aria-label="근거·원칙"><a href="#evidence">근거 자료</a><a href="#rules">운영 원칙</a></nav></div>
     <div class="pagebar"><h1>운영 원칙</h1></div>
     <div class="inner content">
       <section>
@@ -790,14 +764,13 @@ const icoStyle=c=>c==='warn'?'background:var(--warn-bg);color:var(--warn)':`back
 const D={},RAW={};
 
 /* routing */
-const views=['home','hypothesis','calendar','archive','calc','evidence','plan','postnatal','rules'];
+const views=['home','hypothesis','calendar','archive','calc','evidence','plan','postnatal','theory','rules'];
 function route(){const h=location.hash.slice(1);const v=views.includes(h)?h:'home';
   views.forEach(x=>$('#v-'+x).hidden=x!==v);
   $$('.nav a').forEach(a=>(a.dataset.views||a.getAttribute('href').slice(1)).split(' ').includes(v)?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
   $$('.tabs a').forEach(a=>a.getAttribute('href')==='#'+v?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
   window.scrollTo(0,0)}
 addEventListener('hashchange',route);
-function goSearch(sel){const q=$(sel).value.trim();location.hash='evidence';$('#ev-q').value=q;renderEv()}
 $$('[data-row]').forEach(b=>b.addEventListener('click',()=>{const r=$(b.dataset.row);r.scrollBy({left:(+b.dataset.d)*r.clientWidth*.8})}));
 $$('[data-scroll]').forEach(b=>b.addEventListener('click',()=>{const r=$(b.dataset.scroll);r.scrollBy({left:r.clientWidth*.6})}));
 
@@ -960,202 +933,11 @@ $('#modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()})
 addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
 $('#m-apply').addEventListener('click',()=>{const d=defs.find(x=>x.k===mKey);d.v=mVal;d.na=false;$('#in-'+mKey).value=mVal;calc();closeModal()});
 
-/* ===== edit mode: only the business lead edits, saving through the GitHub API =====
-   The token lives only in this browser's localStorage. It is never written to the repo, code or console. */
-const GH={owner:'bmti-official',repo:'Aratech'};
-const TOKEN_KEY='aratech-gh-token';
-const tok={get(){try{return localStorage.getItem(TOKEN_KEY)||''}catch(e){return ''}},set(v){try{localStorage.setItem(TOKEN_KEY,v)}catch(e){}},clear(){try{localStorage.removeItem(TOKEN_KEY)}catch(e){}}};
-const EDIT_FILES=['hypothesis','sources','calc','meetings'];   /* posts.json, plan.json: not editable here */
-const PREFIX={hypothesis:'[작업]',sources:'[근거]',calc:'[계산]',meetings:'[일정]'};
-let E=null;
-const clone=o=>JSON.parse(JSON.stringify(o));
-const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
-const todayStr=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};
-
-/* keep each file's layout: reuse the original text of every unchanged value */
-function parseSpans(t){let i=0;const ws=()=>{while(i<t.length&&/\s/.test(t[i]))i++};
-  const str=()=>{i++;while(t[i]!=='"'){if(t[i]==='\\')i++;i++}i++};
-  function val(){ws();const s=i,c=t[i];
-    if(c==='{'){i++;const o={};ws();if(t[i]==='}'){i++;return{s,e:i,o}}
-      for(;;){ws();const ks=i;str();const k=JSON.parse(t.slice(ks,i));ws();i++;o[k]=val();ws();if(t[i]===','){i++;continue}i++;break}return{s,e:i,o}}
-    if(c==='['){i++;const a=[];ws();if(t[i]===']'){i++;return{s,e:i,a}}
-      for(;;){a.push(val());ws();if(t[i]===','){i++;continue}i++;break}return{s,e:i,a}}
-    if(c==='"'){str();return{s,e:i}}
-    while(i<t.length&&!/[\s,\]\}]/.test(t[i]))i++;return{s,e:i}}
-  return val()}
-const lineIndent=(t,pos)=>t.slice(t.lastIndexOf('\n',pos-1)+1,pos).match(/^\s*/)[0];
-function emit(v,node,t,ind,old,hint){
-  if(node&&same(v,old))return t.slice(node.s,node.e);
-  if(v===null||typeof v!=='object')return JSON.stringify(v);
-  const isA=Array.isArray(v),keys=isA?v.map((_,i)=>i):Object.keys(v);
-  if(!keys.length)return isA?'[]':'{}';
-  const oldOk=node&&old&&typeof old==='object'&&Array.isArray(old)===isA;
-  let inline,ci;
-  if(oldOk&&(isA?node.a.length:Object.keys(node.o).length)){inline=!t.slice(node.s,node.e).includes('\n');const f=isA?node.a[0]:Object.values(node.o)[0];ci=f?lineIndent(t,f.s):ind+'  '}
-  else{inline=hint?hint.inline:keys.every(k=>v[k]===null||typeof v[k]!=='object');ci=ind+'  '}
-  const sib=isA&&oldOk&&node.a[0]?{inline:!t.slice(node.a[0].s,node.a[0].e).includes('\n')}:null;
-  const parts=keys.map(k=>{const cn=oldOk?(isA?node.a[k]:node.o[k]):null;const co=oldOk?old[k]:undefined;
-    const body=emit(v[k],cn&&co!==undefined?cn:null,t,inline?ind:ci,co,sib);return isA?body:JSON.stringify(k)+': '+body});
-  if(inline)return isA?'['+parts.join(', ')+']':'{ '+parts.join(', ')+' }';
-  return (isA?'[':'{')+'\n'+parts.map(p=>ci+p).join(',\n')+'\n'+ind+(isA?']':'}')}
-function serialize(f,obj){const t=RAW[f];const root=parseSpans(t);const m=t.match(/\s*$/)[0];return emit(obj,root,t,'',D[f],null)+m}
-
-/* changes and where they go (AGENTS.md §3-1 PR / §3-2 main) */
-function diff(a,b,p,out){if(same(a,b))return out;
-  if(a&&b&&typeof a==='object'&&typeof b==='object'&&Array.isArray(a)===Array.isArray(b)){
-    const ks=Array.isArray(b)?[...Array(Math.max(a.length,b.length)).keys()]:[...new Set([...Object.keys(a),...Object.keys(b)])];
-    ks.forEach(k=>diff(a[k],b[k],Array.isArray(b)?`${p}[${k}]`:(p?p+'.':'')+k,out));return out}
-  out.push({path:p,old:a,new:b});return out}
-function needsPR(f,path){
-  if(f==='hypothesis')return /^(card|verdict|history)(\.|\[|$)/.test(path)||/^cycle\.(status|start_date)$/.test(path);
-  if(f==='calc'){if(path==='status')return true;const m=path.match(/^inputs\[(\d+)\]/);if(m){const k=(E.calc.inputs[m[1]]||D.calc.inputs[m[1]]||{}).key;return k==='P'||k==='M'}}
-  return false}
-function changes(){if(!E)return[];const out=[];EDIT_FILES.forEach(f=>diff(D[f],E[f],'',[]).filter(c=>c.path!=='updated').forEach(c=>out.push({f,...c,pr:needsPR(f,c.path)})));return out}
-
-/* checks: same rules as scripts/check_data.py, stricter for edited sources */
-const PII_RX=[['이메일',/[\p{L}\p{N}_.+-]+@[\p{L}\p{N}_-]+\.[\p{L}\p{N}_.]+/u],['전화번호',/(?<!\d)01[016789][-\s]?\d{3,4}[-\s]?\d{4}(?!\d)/],['주민번호 형태',/(?<!\d)\d{6}-[1-4]\d{6}(?!\d)/]];
-const isDate=s=>{if(typeof s!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(s))return false;const[y,m,d]=s.split('-').map(Number);const x=new Date(y,m-1,d);return x.getFullYear()===y&&x.getMonth()===m-1&&x.getDate()===d};
-function* strings(o,p=''){if(Array.isArray(o)){for(let i=0;i<o.length;i++)yield* strings(o[i],`${p}[${i}]`)}else if(o&&typeof o==='object'){for(const k in o)yield* strings(o[k],p?p+'.'+k:k)}else if(typeof o==='string')yield[p,o]}
-function validate(){const er=[];const add=(f,m)=>er.push(`${f}.json: ${m}`);
-  EDIT_FILES.forEach(f=>{for(const[p,s]of strings(E[f])){if(/url/.test(p.split('.').pop()))continue;for(const[l,rx]of PII_RX)if(rx.test(s))add(f,`${p}에 ${l}로 보이는 값`)}});
-  const H=E.hypothesis,G=['A','B','C',null];
-  H.card.forEach((c,i)=>{if(!G.includes(c.grade??null))add('hypothesis',`card[${i}] 등급`)});
-  if(![null,'유지','수정','중단'].includes(H.verdict))add('hypothesis','판정은 대기/유지/수정/중단');
-  if(!['시작 전','진행 중','판정 완료'].includes(H.cycle.status))add('hypothesis','사이클 상태는 시작 전/진행 중/판정 완료');
-  if(H.cycle.start_date!=null&&!isDate(H.cycle.start_date))add('hypothesis','시작일 형식 YYYY-MM-DD');
-  if(H.cycle.status==='진행 중'&&!H.start_conditions.every(x=>x.done))add('hypothesis','시작 조건이 다 채워지지 않았는데 상태가 진행 중');
-  H.start_conditions.concat(H.next_steps).forEach((x,i)=>{if(!String(x.text||'').trim())add('hypothesis','빈 체크 항목이 있음')});
-  H.history.forEach((x,i)=>{if(!['유지','수정','중단'].includes(x.verdict))add('hypothesis',`history[${i}] 판정은 유지/수정/중단`)});
-  const ids=new Set();E.sources.items.forEach((it,i)=>{const w=`${it.id||'items['+i+']'}`;
-    if(ids.has(it.id))add('sources',`${w} id 중복`);ids.add(it.id);
-    if(!G.includes(it.grade??null))add('sources',`${w} 등급`);
-    if(it.checked!=null&&!isDate(it.checked))add('sources',`${w} 확인일 형식 YYYY-MM-DD`);
-    if(it.url&&!/^https?:\/\//i.test(it.url))add('sources',`${w} url은 http:// 또는 https://로 시작`);
-    const orig=D.sources.items.find(x=>x.id===it.id);
-    if(!same(orig,it)){if(!String(it.title||'').trim())add('sources',`${w} 항목 이름이 비어 있음`);
-      if(['A','B'].includes(it.grade)&&(!it.url||!it.checked))add('sources',`${w} A·B 등급은 url과 확인일이 필요`)}});
-  if(!['example','draft','approved'].includes(E.calc.status))add('calc','상태는 example/draft/approved');
-  E.calc.inputs.forEach(x=>{if(x.value!==null&&!Number.isFinite(x.value))add('calc',`${x.key} 값은 숫자`)});
-  E.meetings.events.forEach((e,i)=>{if(e.date!=null&&!isDate(e.date))add('meetings',`일정 ${i+1} 날짜 형식`);if(!String(e.title||'').trim())add('meetings',`일정 ${i+1} 제목이 비어 있음`)});
-  E.meetings.meetings.forEach((x,i)=>{if(!isDate(x.date))add('meetings',`회의 ${i+1} 날짜 형식`);if(x.time&&!/^([01]\d|2[0-3]):[0-5]\d$/.test(x.time))add('meetings',`회의 ${i+1} 시간 형식 HH:MM`)});
-  return er}
-
-/* path helpers */
-const steps=p=>p.match(/[^.[\]]+/g).map(s=>/^\d+$/.test(s)?+s:s);
-const getP=(o,p)=>steps(p).reduce((a,k)=>a?.[k],o);
-function setP(o,p,v){const s=steps(p);let a=o;for(let i=0;i<s.length-1;i++)a=a[s[i]];a[s.at(-1)]=v}
-
-/* panel widgets */
-const tagD='<span class="etag ed">바로 반영</span>',tagP='<span class="etag ep">PR</span>';
-const at=(f,p,t)=>`data-f="${f}" data-p="${esc(p)}" data-t="${t}"`;
-const inTxt=(f,p,ph='')=>`<input type="text" ${at(f,p,'s')} value="${esc(getP(E[f],p)??'')}" placeholder="${esc(ph)}">`;
-const inArea=(f,p)=>`<textarea rows="2" ${at(f,p,'s')}>${esc(getP(E[f],p)??'')}</textarea>`;
-const inDate=(f,p)=>`<input type="date" ${at(f,p,'d')} value="${esc(getP(E[f],p)??'')}">`;
-const inNum=(f,p)=>`<input type="number" inputmode="decimal" ${at(f,p,'n')} value="${esc(getP(E[f],p)??'')}">`;
-const inChk=(f,p)=>`<input type="checkbox" ${at(f,p,'b')} ${getP(E[f],p)?'checked':''}>`;
-const inSel=(f,p,opts)=>`<select ${at(f,p,'s')}>${opts.map(([v,l])=>`<option value="${esc(v??'')}" ${(getP(E[f],p)??'')===(v??'')?'selected':''}>${esc(l)}</option>`).join('')}</select>`;
-const GRADES=[['A','A'],['B','B'],['C','C'],[null,'미확인']];
-const del=(f,p)=>`<button type="button" class="emini" data-act="del" data-f="${f}" data-p="${esc(p)}" aria-label="삭제">삭제</button>`;
-const addBtn=(act,label)=>`<button type="button" class="btn btn-soft emini" data-act="${act}">${label}</button>`;
-const sec=(title,tag,body)=>`<section class="esec"><h3>${title} ${tag}</h3>${body}</section>`;
-const NOTE='<p class="enote">실명·연락처·환자 정보는 넣지 않습니다. 사람은 역할(사업 총괄, 멘토, P01)로 적습니다.</p>';
-
-function panelHyp(){const H=E.hypothesis,f='hypothesis';
-  const list=(key,label)=>sec(label,tagD,H[key].map((x,i)=>`<div class="erow">${inChk(f,`${key}[${i}].done`)}${inTxt(f,`${key}[${i}].text`)}${del(f,`${key}[${i}]`)}</div>`).join('')+`<div class="erow"><input type="text" id="new-${key}" placeholder="새 항목">${addBtn('add-'+key,'추가')}</div>`);
-  return NOTE+sec('사이클',tagP,`<div class="egrid"><label>상태${inSel(f,'cycle.status',[['시작 전','시작 전'],['진행 중','진행 중'],['판정 완료','판정 완료']])}</label><label>시작일${inDate(f,'cycle.start_date')}</label><label>판정${inSel(f,'verdict',[[null,'대기'],['유지','유지'],['수정','수정'],['중단','중단']])}</label></div>`)
-   +sec('가설 카드',tagP,H.card.map((c,i)=>`<label class="efull">${esc(c.key)}${inArea(f,`card[${i}].value`)}</label><label class="egrade">등급${inSel(f,`card[${i}].grade`,GRADES)}</label>`).join(''))
-   +list('start_conditions','시작 조건')+list('next_steps','다음 단계')
-   +sec('타이밍 점수',tagD,`<div class="egrid">${H.timing.map((t,i)=>`<label>${esc(t.code)} · ${esc(t.name)}${inNum(f,`timing[${i}].value`)}</label>`).join('')}</div>`)
-   +sec('사이클 히스토리 추가',tagP,`<div class="egrid"><label>기간<input type="text" id="h-period" placeholder="2026-12-01 ~ 2026-12-07"></label><label>판정<select id="h-verdict"><option>유지</option><option>수정</option><option>중단</option></select></label><label>반증 기준<input type="text" id="h-threshold" placeholder="3%p"></label><label>실측<input type="text" id="h-measured" placeholder="+4.1%p"></label><label>신호<input type="text" id="h-signal" placeholder="지지 신호"></label><label class="efull">배운 점<input type="text" id="h-learned"></label></div>${addBtn('add-history','히스토리 추가')}`)}
-function panelCal(){const M=E.meetings,f='meetings';
-  const COLORS=['blue','pink','green','yellow','peach','cream','warn'].map(c=>[c,c]);
-  return NOTE+sec('주간 요약',tagD,inArea(f,'weekly_summary'))
-   +sec('일정',tagD,M.events.map((e,i)=>`<div class="erow ewrap">${inDate(f,`events[${i}].date`)}${inTxt(f,`events[${i}].title`,'제목')}${inTxt(f,`events[${i}].note`,'메모 (날짜 미정일 때)')}<input type="text" maxlength="2" class="eshort" ${at(f,`events[${i}].badge`,'s')} value="${esc(e.badge??'')}" placeholder="표시">${inSel(f,`events[${i}].color`,COLORS)}${del(f,`events[${i}]`)}</div>`).join('')+addBtn('add-event','일정 추가'))
-   +sec('회의',tagD,M.meetings.map((x,i)=>`<div class="erow ewrap">${inDate(f,`meetings[${i}].date`)}<input type="time" ${at(f,`meetings[${i}].time`,'s')} value="${esc(x.time??'')}">${inTxt(f,`meetings[${i}].title`,'제목')}${del(f,`meetings[${i}]`)}<label class="efull">한 줄 요약${inArea(f,`meetings[${i}].summary`)}</label></div>`).join('')+addBtn('add-meeting','회의 추가'))}
-function panelEv(){const f='sources';
-  return NOTE+sec('근거',tagD,E.sources.items.map((it,i)=>`<div class="erow ewrap ecard"><b class="eid">${esc(it.id)}</b>${inTxt(f,`items[${i}].title`,'항목')}${inTxt(f,`items[${i}].used_in`,'쓰는 곳')}${inSel(f,`items[${i}].grade`,GRADES)}${inTxt(f,`items[${i}].source`,'출처 (기관·매체, 자료명)')}${inTxt(f,`items[${i}].url`,'https://')}${inDate(f,`items[${i}].checked`)}${D.sources.items.some(x=>x.id===it.id)?'':del(f,`items[${i}]`)}</div>`).join('')+addBtn('add-source','근거 추가')+'<p class="enote">A·B 등급은 url과 확인일이 있어야 저장됩니다.</p>')}
-function panelCalc(){const f='calc';
-  return NOTE+sec('계산 상태',tagP,inSel(f,'status',[['example','example (예시 값)'],['draft','draft (실제 값, 승인 전)'],['approved','approved']]))
-   +sec('입력값','',`<div class="egrid">${E.calc.inputs.map((x,i)=>`<label>${esc(x.key)} · ${esc(x.name)} (${esc(x.unit)}) ${x.key==='P'||x.key==='M'?tagP:tagD}${inNum(f,`inputs[${i}].value`)}</label>`).join('')}</div>`)}
-const PANELS={hypothesis:panelHyp,calendar:panelCal,evidence:panelEv,calc:panelCalc};
-function mountPanels(){Object.entries(PANELS).forEach(([v,fn])=>{const view=$('#v-'+v);let p=view.querySelector(':scope > .edit-panel');
-  if(!E){p?.remove();return}
-  if(!p){p=document.createElement('div');p.className='edit-panel inner';const anchor=view.querySelector(':scope > .subtabs')||view.querySelector(':scope > .pagebar');anchor?anchor.after(p):view.prepend(p)}
-  p.innerHTML=`<div class="ehead"><b>편집 모드</b><span class="muted small">여기서 고친 값은 아래 저장 막대로 한꺼번에 저장합니다</span></div>`+fn()})}
-
-/* events */
-document.addEventListener('input',e=>{const el=e.target.closest('.edit-panel [data-p]');if(!el||!E)return;
-  const t=el.dataset.t;let v=t==='b'?el.checked:el.value;
-  if(t==='n')v=el.value===''?null:Number(el.value);
-  if(t==='d'||t==='s'){if(v==='')v=null}
-  setP(E[el.dataset.f],el.dataset.p,v);bar()});
-document.addEventListener('click',e=>{const b=e.target.closest('.edit-panel [data-act]');if(!b||!E)return;const a=b.dataset.act,H=E.hypothesis;
-  if(a==='del'){const s=steps(b.dataset.p);const arr=getP(E[b.dataset.f],s.slice(0,-1).join('.'));arr.splice(s.at(-1),1)}
-  if(a==='add-start_conditions'||a==='add-next_steps'){const k=a.slice(4),i=$('#new-'+k);if(!i.value.trim())return;H[k].push({text:i.value.trim(),done:false})}
-  if(a==='add-history'){const g=id=>$('#'+id).value.trim();H.history.push({cycle:H.cycle.no,title:H.cycle.title,period:g('h-period'),verdict:$('#h-verdict').value,threshold:g('h-threshold'),measured:g('h-measured'),signal:g('h-signal'),learned:g('h-learned')})}
-  if(a==='add-event')E.meetings.events.push({date:todayStr(),title:'',badge:'·',color:'blue'});
-  if(a==='add-meeting')E.meetings.meetings.push({date:todayStr(),time:'',title:'정기 회의',roles:[],cycle:H.cycle.no,summary:null,decisions:[],actions:[],changes:[],open_questions:[],full_minutes_url:null});
-  if(a==='add-source'){const n=Math.max(0,...E.sources.items.map(x=>parseInt(String(x.id).slice(1))||0))+1;E.sources.items.push({id:'S'+String(n).padStart(3,'0'),title:'',used_in:'',grade:null,source:'',url:null,checked:null})}
-  mountPanels();bar()});
-
-/* bar, dialogs */
-function bar(){const c=changes(),n=c.length;$('#ebar-count').textContent=n?`바뀐 칸 ${n}개${c.some(x=>x.pr)?' · PR로 저장':' · main에 바로 저장'}`:'바뀐 칸 없음';
-  $('#ebar-save').disabled=!n||!tok.get();$('#ebar-save').textContent=tok.get()?'저장':'토큰 없음 · 미리보기만'}
-function setEdit(on){E=on?clone(Object.fromEntries(EDIT_FILES.map(f=>[f,D[f]]))):null;document.body.classList.toggle('editing',on);$('#ebar').hidden=!on;$('#edit-btn').textContent=on?'편집 중':'편집';mountPanels();if(on)bar()}
-const show=v=>{$('#edlg').hidden=false;$('#edlg-body').innerHTML=v};
-const short=v=>{const s=v===undefined?'(없음)':JSON.stringify(v);return esc(s.length>120?s.slice(0,117)+'…':s)};
-function preview(){const c=changes(),er=validate(),pr=c.some(x=>x.pr);
-  show(`<h2>바뀔 내용 미리보기</h2>
-  ${c.length?`<p>${pr?'<b>새 브랜치 + PR</b>로 보냅니다 (PR 대상 칸이 섞여 있어 전체를 PR로). 사람이 승인해야 사이트에 나갑니다.':'<b>main에 바로 커밋</b>합니다.'}</p>
-  <div class="tscroll"><table class="etable"><thead><tr><th>파일</th><th>칸</th><th>전</th><th>후</th><th>방식</th></tr></thead><tbody>${c.map(x=>`<tr><td>${x.f}.json</td><td>${esc(x.path)}</td><td>${short(x.old)}</td><td>${short(x.new)}</td><td>${x.pr?tagP:tagD}</td></tr>`).join('')}</tbody></table></div>`:'<p>바뀐 칸이 없습니다.</p>'}
-  ${er.length?`<div class="eerr"><b>저장 전에 고칠 것</b><ul class="plain">${er.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`:''}
-  ${tok.get()?'':'<p class="muted small">토큰이 없어 저장은 하지 않고 미리보기만 보여 줍니다.</p>'}
-  <div class="eact">${tok.get()&&c.length&&!er.length?'<button class="btn btn-ink" type="button" id="edlg-save">저장</button>':''}<button class="btn btn-soft" type="button" data-close>닫기</button></div>`)}
-function tokenDialog(){show(`<h2>편집 모드</h2>
-  <p>사업 총괄만 씁니다. GitHub 개인 접근 토큰은 이 브라우저에만 저장되고 저장소에는 남지 않습니다.</p>
-  ${tok.get()?'<p><b>토큰이 등록되어 있습니다.</b></p>':`<label class="efull">GitHub 토큰 (fine-grained)<input type="password" id="tok-in" autocomplete="off" spellcheck="false" placeholder="github_pat_…"></label>`}
-  <p class="muted small" id="tok-msg"></p>
-  <div class="eact">${tok.get()?'<button class="btn btn-ink" type="button" id="tok-go">편집 켜기</button><button class="btn btn-soft" type="button" id="tok-clear">토큰 지우기</button>':'<button class="btn btn-ink" type="button" id="tok-save">토큰 확인하고 편집</button><button class="btn btn-soft" type="button" id="tok-skip">토큰 없이 미리보기만</button>'}<button class="btn btn-soft" type="button" data-close>닫기</button></div>`)}
-async function gh(path,opt={}){const r=await fetch(`https://api.github.com/repos/${GH.owner}/${GH.repo}${path}`,{method:opt.method||'GET',headers:{'Accept':'application/vnd.github+json','Authorization':'Bearer '+(opt.token||tok.get()),'X-GitHub-Api-Version':'2022-11-28'},body:opt.body?JSON.stringify(opt.body):undefined,cache:'no-store'});
-  const j=await r.json().catch(()=>({}));if(!r.ok){const e=new Error(j.message||('HTTP '+r.status));e.status=r.status;throw e}return j}
-const b64e=s=>{let x='';new TextEncoder().encode(s).forEach(c=>x+=String.fromCharCode(c));return btoa(x)};
-const b64d=s=>new TextDecoder().decode(Uint8Array.from(atob(s.replace(/\n/g,'')),c=>c.charCodeAt(0)));
-const CONFLICT='다른 곳에서 먼저 바뀌었습니다. 새로고침한 뒤 다시 고쳐 주세요. (덮어쓰지 않았습니다)';
-async function save(){const c=changes(),er=validate();if(!c.length||er.length||!tok.get())return preview();
-  const files=[...new Set(c.map(x=>x.f))],pr=c.some(x=>x.pr),today=todayStr();
-  const label=c.slice(0,4).map(x=>`${x.f}:${x.path}`).join(', ')+(c.length>4?` 외 ${c.length-4}건`:'');
-  show('<h2>저장 중…</h2><p class="muted">창을 닫지 마세요.</p>');
-  try{const out={};
-    const ref=await gh('/git/ref/heads/main'),head=ref.object.sha,base=await gh('/git/commits/'+head);
-    for(const f of files){E[f].updated=today;out[f]=serialize(f,E[f]);const cur=await gh(`/contents/site/data/${f}.json?ref=${head}`);if(b64d(cur.content)!==RAW[f])throw Object.assign(new Error(CONFLICT),{status:409})}
-    const tree=await gh('/git/trees',{method:'POST',body:{base_tree:base.tree.sha,tree:files.map(f=>({path:`site/data/${f}.json`,mode:'100644',type:'blob',content:out[f]}))}});
-    const prefix=[...new Set(files.map(f=>PREFIX[f]))].join('');
-    const commit=await gh('/git/commits',{method:'POST',body:{message:`${prefix} ${files.map(f=>f+'.json').join(', ')} 수정 (사이트 편집)\n\n${c.map(x=>`${x.f}.json ${x.path}`).join('\n')}`,tree:tree.sha,parents:[head]}});
-    let link,msg;
-    if(!pr){await gh('/git/refs/heads/main',{method:'PATCH',body:{sha:commit.sha,force:false}});
-      link=`https://github.com/${GH.owner}/${GH.repo}/actions`;msg=`main에 저장했습니다. 1~2분 뒤 사이트에 반영됩니다. 검사(check_data.py)에 실패하면 반영되지 않습니다.`}
-    else{const d=new Date(),st=`${today.replace(/-/g,'')}-${String(d.getHours()).padStart(2,'0')}${String(d.getMinutes()).padStart(2,'0')}${String(d.getSeconds()).padStart(2,'0')}`,br=`site-edit/${st}`;
-      await gh('/git/refs',{method:'POST',body:{ref:'refs/heads/'+br,sha:commit.sha}});
-      const p=await gh('/pulls',{method:'POST',body:{title:`[사이트 편집] ${label}`.slice(0,120),head:br,base:'main',body:`사이트 편집 모드에서 생성했습니다. merge는 사람이 합니다.\n\n## 바뀐 칸\n${c.map(x=>`- ${x.f}.json \`${x.path}\`: ${JSON.stringify(x.old)} → ${JSON.stringify(x.new)}`).join('\n')}`}});
-      link=p.html_url;msg='PR을 만들었습니다. 사업 총괄이 확인하고 merge하면 1~2분 뒤 사이트에 반영됩니다. 검사에 실패하면 반영되지 않습니다.'}
-    if(!pr){files.forEach(f=>{RAW[f]=out[f];D[f]=clone(E[f])});try{renderHyp();renderChecks();renderCalendar();renderMeetings();renderEv();renderInputs();calc()}catch(e){}}
-    setEdit(false);
-    show(`<h2>${pr?'PR을 만들었습니다':'저장했습니다'}</h2><p>${esc(msg)}</p><p><a href="${esc(link)}" target="_blank" rel="noopener">${pr?'PR 열기':'GitHub Actions에서 진행 보기'}</a></p><div class="eact"><button class="btn btn-soft" type="button" data-close>닫기</button></div>`)
-  }catch(e){show(`<h2>저장하지 못했습니다</h2><p>${esc(e.status===409||e.status===422?CONFLICT:e.status===401||e.status===403?'토큰이 만료되었거나 권한이 없습니다. 토큰을 지우고 새로 등록해 주세요.':e.message)}</p><div class="eact"><button class="btn btn-soft" type="button" data-close>닫기</button></div>`)}}
-$('#edit-btn').addEventListener('click',()=>E?($('#edlg').hidden=false,preview()):tokenDialog());
-$('#ebar-preview').addEventListener('click',preview);
-$('#ebar-save').addEventListener('click',save);
-$('#ebar-done').addEventListener('click',()=>{if(changes().length&&!confirm('저장하지 않은 변경을 버릴까요?'))return;setEdit(false)});
-$('#edlg').addEventListener('click',async e=>{const id=e.target.id;
-  if(e.target.matches('[data-close]')||id==='edlg')$('#edlg').hidden=true;
-  if(id==='edlg-save')save();
-  if(id==='tok-skip'){$('#edlg').hidden=true;setEdit(true)}
-  if(id==='tok-go'){$('#edlg').hidden=true;setEdit(true)}
-  if(id==='tok-clear'){tok.clear();tokenDialog()}
-  if(id==='tok-save'){const v=$('#tok-in').value.trim();if(!v)return;$('#tok-msg').textContent='확인 중…';
-    try{const r=await gh('',{token:v});if(!r.permissions?.push)throw new Error('이 토큰에는 쓰기 권한이 없습니다');tok.set(v);$('#edlg').hidden=true;setEdit(true)}
-    catch(err){$('#tok-msg').textContent='토큰을 쓸 수 없습니다: '+(err.status===401?'토큰이 틀렸거나 만료되었습니다':err.status===404?'Aratech 저장소에 접근할 수 없습니다':err.message)}}});
-addEventListener('keydown',e=>{if(e.key==='Escape')$('#edlg').hidden=true});
+/* header hides while scrolling down, comes back when scrolling up */
+let lastY=scrollY;addEventListener('scroll',()=>{const y=scrollY;if(y>lastY+6&&y>90)document.body.classList.add('hdr-hide');else if(y<lastY-6||y<40)document.body.classList.remove('hdr-hide');lastY=y},{passive:true});
+$('#to-top').addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+$('#to-bottom').addEventListener('click',()=>scrollTo({top:document.documentElement.scrollHeight,behavior:'smooth'}));
+addEventListener('hashchange',()=>document.body.classList.remove('hdr-hide'));
 
 route();load();
 </script>
