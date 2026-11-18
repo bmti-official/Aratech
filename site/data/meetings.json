@@ -1,9 +1,21 @@
 {
-  "updated": "2026-11-17",
+  "updated": "2026-11-18",
   "events": [
     { "date": "2026-11-17", "title": "지침서 확정", "badge": "지", "color": "blue" },
     { "date": null, "title": "가설 사이클 시작일", "note": "미정 · 시작 조건 5개 충족 후", "badge": "!", "color": "warn" }
   ],
   "weekly_summary": null,
-  "meetings": []
+  "meetings": [
+    {
+      "date": "2026-11-18", "time": "13:00", "title": "정기 회의 (서현역)",
+      "roles": [],
+      "cycle": 1,
+      "summary": null,
+      "decisions": [],
+      "actions": [],
+      "changes": [],
+      "open_questions": [],
+      "full_minutes_url": null
+    }
+  ]
 }

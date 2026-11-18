@@ -53,10 +53,17 @@ button{font:inherit;cursor:pointer;color:inherit}
 .small{font-size:13.5px}
 
 /* shell */
-.app{min-height:100vh;padding-left:72px}
-.rail{position:fixed;left:0;top:0;z-index:50;width:72px;height:100vh;overflow:hidden;white-space:nowrap;border-right:1px solid var(--line);background:var(--surface);display:flex;flex-direction:column;padding:28px 0 22px;transition:width .18s ease,box-shadow .18s ease}
-.rail:hover,.rail:focus-within{width:236px;box-shadow:0 10px 30px rgb(0 0 0 / .12)}
-.brand{display:flex;align-items:center;gap:12px;padding:0 18px 44px;font-family:var(--f-body);font-weight:600;font-size:25px;letter-spacing:-.01em}
+.app{min-height:100vh}
+.rail{position:fixed;left:0;top:0;z-index:50;width:min(236px,80vw);height:100vh;height:100dvh;overflow-y:auto;white-space:nowrap;border-right:1px solid var(--line);background:var(--surface);display:flex;flex-direction:column;padding:28px 0 22px;transform:translateX(-100%);visibility:hidden;transition:transform .2s ease,visibility .2s}
+.app.nav-open .rail{transform:none;visibility:visible;box-shadow:0 10px 30px rgb(0 0 0 / .18)}
+.navscrim{position:fixed;inset:0;z-index:49;background:rgb(20 20 20 / .3)}
+.navbtn{flex:none;width:42px;height:42px;border-radius:10px;border:0;background:transparent;display:grid;place-items:center;color:var(--fg)}
+.navbtn:hover{background:var(--panel)}
+.navbtn svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round}
+.ttl{display:flex;align-items:center;gap:12px;min-width:0}
+.topbar .navbtn{color:#fff}
+.topbar .navbtn:hover{background:rgb(255 255 255 / .12)}
+.brand{display:flex;align-items:center;gap:12px;padding:0 26px 44px;font-family:var(--f-body);font-weight:600;font-size:25px;letter-spacing:-.01em}
 .brand svg{width:36px;height:36px}
 .nav{display:flex;flex-direction:column;gap:clamp(2px,2.2vh,26px)}
 .nav a{position:relative;display:flex;align-items:center;gap:16px;padding:12px 24px;color:var(--fg);text-decoration:none;font-size:16.5px}
@@ -67,7 +74,7 @@ button{font:inherit;cursor:pointer;color:inherit}
 .nav a[aria-current="page"] svg .cut{stroke:var(--surface)}
 .nav a[aria-current="page"]::after{content:"";position:absolute;right:-1px;top:4px;bottom:4px;width:4px;border-radius:3px 0 0 3px;background:var(--fg)}
 .nav .pro{position:absolute;left:150px;top:-4px}
-.me{margin-top:auto;display:flex;align-items:center;gap:14px;padding:0 15px}
+.me{margin-top:auto;display:flex;align-items:center;gap:14px;padding:0 28px}
 .av{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-weight:600;font-size:15px;color:#2B2B2B;flex:none}
 
 main{min-width:0}
@@ -234,23 +241,24 @@ td .who{display:flex;align-items:center;gap:14px}
 
 /* modal */
 .scrim{position:fixed;inset:0;background:rgb(20 20 20 / .45);display:grid;place-items:center;padding:16px;z-index:30}
-.modal{background:var(--surface);border-radius:24px;width:min(100%,1060px);max-height:calc(100vh - 32px);overflow:auto;display:grid;grid-template-columns:1fr 1fr}
-@media (max-width:760px){.modal{grid-template-columns:1fr}}
-.modal .ml{background:var(--panel);padding:70px 40px 40px;display:flex;flex-direction:column;gap:12px;position:relative}
-.modal .mr{padding:44px;display:flex;flex-direction:column;gap:22px}
-.x{position:absolute;top:22px;left:22px;width:42px;height:42px;border-radius:50%;border:0;background:var(--surface);box-shadow:var(--shadow);display:grid;place-items:center}
+.modal{background:var(--surface);border-radius:clamp(14px,2.4vw,24px);width:min(100%,1060px);max-height:calc(100vh - 32px);max-height:calc(100dvh - 32px);overflow:auto;display:grid;grid-template-columns:1fr 1fr}
+@media (max-width:560px){.modal{grid-template-columns:1fr}}
+@media (max-width:560px),(max-height:620px){.modal .opt{padding:10px 12px}.modal .opt p{font-size:12px;line-height:1.4}.modal .mr > p.small{padding:8px 10px!important;font-size:12.5px}.scrim .modal .ml{padding-top:50px;gap:8px}.scrim .modal .mr{gap:10px}}
+.modal .ml{background:var(--panel);padding:clamp(58px,9vh,70px) clamp(14px,4vw,40px) clamp(14px,4vh,40px);display:flex;flex-direction:column;gap:clamp(8px,1.6vh,12px);position:relative}
+.modal .mr{padding:clamp(16px,4vw,44px);display:flex;flex-direction:column;gap:clamp(10px,2.4vh,22px)}
+.x{position:absolute;top:clamp(10px,2vh,22px);left:clamp(10px,2vw,22px);width:42px;height:42px;border-radius:50%;border:0;background:var(--surface);box-shadow:var(--shadow);display:grid;place-items:center}
 .x svg{width:14px;height:14px;stroke:currentColor;stroke-width:2}
 .opt{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:var(--surface);text-align:left;display:flex;flex-direction:column;gap:3px}
 .opt[aria-pressed="true"]{border-color:var(--fg);box-shadow:0 0 0 1px var(--fg)}
 .opt .t{display:flex;justify-content:space-between;gap:10px;font-weight:600}
 .opt p{font-size:13px;color:var(--muted)}
-.mr h2{font-size:30px;font-weight:600}
-.stepper{display:flex;align-items:center;justify-content:center;gap:34px}
-.stepper button{width:62px;height:62px;border-radius:50%;border:1px solid var(--line);background:var(--surface);font-size:24px;font-weight:300}
-.stepper output{font-size:46px;font-weight:600;min-width:6ch;text-align:center;font-variant-numeric:tabular-nums}
+.mr h2{font-size:clamp(20px,3vw,30px);font-weight:600}
+.stepper{display:flex;align-items:center;justify-content:center;gap:clamp(12px,3vw,34px)}
+.stepper button{width:clamp(42px,7vh,62px);height:clamp(42px,7vh,62px);flex:none;border-radius:50%;border:1px solid var(--line);background:var(--surface);font-size:24px;font-weight:300}
+.stepper output{font-size:clamp(28px,6vh,46px);font-weight:600;min-width:0;text-align:center;font-variant-numeric:tabular-nums}
 .stepper output sup{font-size:22px;vertical-align:28px;margin-right:2px}
-.presets{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-.presets button{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:12px 26px;font-size:17px;font-weight:500}
+.presets{display:flex;gap:clamp(8px,1.6vw,16px);justify-content:center;flex-wrap:wrap}
+.presets button{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:clamp(7px,1.4vh,12px) clamp(14px,2.4vw,26px);font-size:clamp(14px,1.6vw,17px);font-weight:500}
 .presets button[aria-pressed="true"]{border-color:var(--fg)}
 
 /* misc */
@@ -276,7 +284,7 @@ ul.plain,ol.plain{margin:0;padding-left:22px;display:flex;flex-direction:column;
 .formula{font-family:ui-monospace,Menlo,monospace;font-size:14px;background:var(--panel);border-radius:12px;padding:18px 20px;line-height:1.9;white-space:pre;overflow-x:auto}
 .legend{display:flex;gap:10px 18px;flex-wrap:wrap;align-items:center;font-size:14px;color:var(--muted)}
 
-/* sidebar: icon rail at every width, opens on hover or keyboard focus */
+/* sidebar: hidden; the menu button next to each page title opens it */
 @media (max-width:860px){
   .row{gap:20px}
   .cal > div{min-height:96px;padding:8px}
@@ -298,7 +306,7 @@ ul.plain,ol.plain{margin:0;padding-left:22px;display:flex;flex-direction:column;
 </defs></svg>
 
 <div class="app">
-  <aside class="rail">
+  <aside class="rail" id="rail" aria-label="사이드 메뉴">
     <div class="brand">
       <svg width="46" height="46" viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="19" fill="none" stroke="currentColor" stroke-width="3.4"/><path d="M15 23a8 8 0 1 1 8 8" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/><circle cx="23" cy="23" r="2.6" fill="currentColor"/></svg>
       <span>Aratech</span>
@@ -316,6 +324,7 @@ ul.plain,ol.plain{margin:0;padding-left:22px;display:flex;flex-direction:column;
     <div class="me"><span class="av" style="background:#C5DE9E">총괄</span><span>사업 총괄</span></div>
   </aside>
 
+  <div class="navscrim" id="navscrim" hidden></div>
   <main>
 
   <!-- HOME -->
@@ -698,6 +707,15 @@ ul.plain,ol.plain{margin:0;padding-left:22px;display:flex;flex-direction:column;
 const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 const $=s=>document.querySelector(s);
 const $$=s=>Array.from(document.querySelectorAll(s));
+/* side menu: hidden until the ☰ button beside a page title is clicked */
+function setNav(open){$('.app').classList.toggle('nav-open',open);$('#navscrim').hidden=!open;$$('.navbtn').forEach(b=>b.setAttribute('aria-expanded',open));if(open)setTimeout(()=>$('#rail a')?.focus(),220)}
+$$('.view').forEach(v=>{const h=v.querySelector('.hero-top .title, .pagebar h1, .topbar > a, .split .l > h1');if(!h)return;
+  const w=document.createElement('div');w.className='ttl';h.replaceWith(w);
+  const b=document.createElement('button');b.type='button';b.className='navbtn';b.setAttribute('aria-label','메뉴 열기');b.setAttribute('aria-controls','rail');b.setAttribute('aria-expanded','false');
+  b.innerHTML='<svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';b.addEventListener('click',()=>setNav(true));w.append(b,h)});
+$('#navscrim').addEventListener('click',()=>setNav(false));
+$$('#rail a').forEach(a=>a.addEventListener('click',()=>setNav(false)));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('.app').classList.contains('nav-open'))setNav(false)});
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const won=n=>isFinite(n)?Math.round(n).toLocaleString('ko-KR')+'원':'계산 불가';
 const ppl=n=>isFinite(n)&&n>0?Math.ceil(n).toLocaleString('ko-KR')+'명':'계산 불가';
