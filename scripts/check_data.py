@@ -122,6 +122,8 @@ def main():
             ids.add(it.get("id"))
             check_grade("sources.json", w, it.get("grade"))
             check_date("sources.json", w, it.get("checked"), stale_check=True)
+            if it.get("url") and not re.match(r"^https?://", it["url"], re.I):
+                err("sources.json", f"{w} url은 http:// 또는 https://로 시작해야 함")
             if it.get("grade") in ("A", "B") and not it.get("url"):
                 warn("sources.json", f"{w} A/B 등급인데 url 없음")
             if it.get("grade") in ("A", "B") and not it.get("checked"):
