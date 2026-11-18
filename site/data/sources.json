@@ -135,6 +135,24 @@
       "source": "TechCrunch 2023-03-14",
       "url": "https://techcrunch.com/2023/03/14/nabla-a-french-digital-health-startup-launches-copilot-using-gpt-3-to-turn-patient-conversations-into-actionable-items/",
       "checked": "2026-11-18"
+    },
+    {
+      "id": "S016",
+      "title": "도수치료 관리급여: 2026-07-01부터 1회 43,850원, 본인부담 95%, 주 2회·연 15회(특수사유 최대 24회)",
+      "used_in": "시장 현실 (회의 2026-11-01 수치 검증)",
+      "grade": "A",
+      "source": "보건복지부 건강보험정책국 정책자료 2026-07-02 (KDI 경제정보센터 게시)",
+      "url": "https://eiec.kdi.re.kr/policy/materialView.do?num=283655",
+      "checked": "2026-11-18"
+    },
+    {
+      "id": "S017",
+      "title": "체외충격파 자율시정 가이드라인: 2026-07부터 부위당 최대 6회·연 최대 12회 권장, 초과 시 실손 적용 제외 가능",
+      "used_in": "시장 현실 (회의 2026-11-01 수치 검증)",
+      "grade": "B",
+      "source": "디지털데일리 2026-06-17 (보건복지부 비급여관리정책협의체 발표 보도)",
+      "url": "https://www.ddaily.co.kr/page/view/2026061716210256722",
+      "checked": "2026-11-18"
     }
   ]
 }
